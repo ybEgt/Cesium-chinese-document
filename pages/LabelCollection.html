@@ -1,0 +1,3267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LabelCollection - Cesium Documentation</title>
+
+  <!--[if lt IE 9]>
+      <script src="javascript/html5.js"></script>
+    <![endif]-->
+  <link href="../styles/jsdoc-default.css" rel="stylesheet">
+  <link href="../styles/prism.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="main">
+    <h1 class="page-title">
+      <a href="../index.html">
+        <img class="cesiumLogo" src="../Images/CesiumLogo.png">
+      </a>
+      LabelCollection
+      <div class="titleCenterer">
+      </div>
+    </h1>
+    <section>
+      <header>
+      </header>
+      <article>
+        <div class="container-overview">
+          <div class="nameContainer">
+            <h4 class="name" id="LabelCollection">
+              <a class="doc-link" href="#LabelCollection">
+              </a>
+              new Cesium.LabelCollection
+              <span class="signature">
+                (
+                <span class="optional">
+                  options
+                </span>
+                )
+              </span>
+              <div class="source-link rightLinks">
+                <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L593"
+                  target="_blank">
+                  Scene/LabelCollection.js 593
+                </a>
+              </div>
+            </h4>
+          </div>
+          <div class="description">
+            可渲染的标签集合。标签是位于 3D 场景中的视口对齐文本。每个标签可以有不同的字体、颜色、比例等。
+            <br>
+            <br>
+            <div align="center">
+              <img height="300" src="../Images/Label.png" width="400">
+              <br>
+              示例标签
+            </div>
+            <br>
+            <br>
+            使用
+            <a href="LabelCollection.html#add">
+              <code>
+          LabelCollection#add
+         </code>
+            </a>
+            和
+            <a href="LabelCollection.html#remove">
+              <code>
+          LabelCollection#remove
+         </code>
+            </a>
+            从集合中添加和删除标签。
+          </div>
+          <h5>
+            Performance:
+          </h5>
+          <p class="description">
+            为了获得最佳性能，最好选择几个集合，每个集合都有很多标签，而不是多个集合，每个集合只有几个标签。避免有一些标签每帧都会改变而其他标签不会改变的集合；相反，为静态标签创建一个或多个集合，为动态标签创建一个或多个集合。
+          </p>
+          <table class="params">
+            <thead>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th>
+                  Type
+                </th>
+                <th class="last">
+                  Description
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="name">
+                  <code>
+            options
+           </code>
+                </td>
+                <td class="type">
+                  <span class="param-type">
+                    Object
+                  </span>
+                </td>
+                <td class="description last">
+                  具有以下属性的
+                  <span class="optional">
+                    可选
+                  </span>
+                  对象:
+                  <table class="params">
+                    <thead>
+                      <tr>
+                        <th>
+                          姓名
+                        </th>
+                        <th>
+                          类型
+                        </th>
+                        <th>
+                          默认
+                        </th>
+                        <th class="last">
+                          描述
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="name">
+                          <code>
+                modelMatrix
+               </code>
+                        </td>
+                        <td class="type">
+                          <span class="param-type">
+                            <a href="Matrix4.html">
+                              矩阵4
+                            </a>
+                          </span>
+                        </td>
+                        <td class="default">
+                          <code class="language-javascript">
+                Matrix4<span class="token punctuation">.</span><span class="token constant">IDENTITY</span>
+               </code>
+                        </td>
+                        <td class="description last">
+                          <span class="optional">
+                            可选
+                          </span>
+                          将每个标签从模型转换为世界坐标的 4x4 转换矩阵。
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="name">
+                          <code>
+                debugShowBoundingVolume
+               </code>
+                        </td>
+                        <td class="type">
+                          <span class="param-type">
+                            布尔值
+                          </span>
+                        </td>
+                        <td class="default">
+                          <code class="language-javascript">
+                <span class="token boolean">false</span>
+               </code>
+                        </td>
+                        <td class="description last">
+                          <span class="optional">
+                            可选
+                          </span>
+                          仅用于调试。确定是否显示此原语的命令的边界球。
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="name">
+                          <code>
+                scene
+               </code>
+                        </td>
+                        <td class="type">
+                          <span class="param-type">
+                            <a href="Scene.html">
+                              场景
+                            </a>
+                          </span>
+                        </td>
+                        <td class="default">
+                        </td>
+                        <td class="description last">
+                          <span class="optional">
+                            可选
+                          </span>
+                          必须为使用高度参考属性的标签传递，否则将针对地球进行深度测试。
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="name">
+                          <code>
+                blendOption
+               </code>
+                        </td>
+                        <td class="type">
+                          <span class="param-type">
+                            <a href="global.html#BlendOption">
+                              混合选项
+                            </a>
+                          </span>
+                        </td>
+                        <td class="default">
+                          <code class="language-javascript">
+                BlendOption<span class="token punctuation">.</span><span class="token constant">OPAQUE_AND_TRANSLUCENT</span>
+               </code>
+                        </td>
+                        <td class="description last">
+                          <span class="optional">
+                            可选
+                          </span>
+                          标签混合选项。默认值用于呈现不透明和半透明标签。但是，如果所有标签都完全不透明或完全半透明，则将技术设置为 BlendOption.OPAQUE 或
+                          BlendOption.TRANSLUCENT 可以将性能提高多达 2 倍。
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="name">
+                          <code>
+                show
+               </code>
+                        </td>
+                        <td class="type">
+                          <span class="param-type">
+                            布尔值
+                          </span>
+                        </td>
+                        <td class="default">
+                          <code class="language-javascript">
+                <span class="token boolean">true</span>
+               </code>
+                        </td>
+                        <td class="description last">
+                          <span class="optional">
+                            可选
+                          </span>
+                          确定是否显示集合中的标签。
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <dl class="details">
+            <h5>
+              Example:
+            </h5>
+            <pre class="language-javascript"
+              tabindex="0"><code class="language-javascript"><span class="token comment">// Create a label collection with two labels</span>
+ <span class="token keyword">const</span> labels <span class="token operator">=</span> scene<span class="token punctuation">.</span>primitives<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>LabelCollection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ labels<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   <span class="token literal-property property">position</span> <span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Cartesian3</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">3.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">text</span> <span class="token operator">:</span> <span class="token string">'A label'</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ labels<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   <span class="token literal-property property">position</span> <span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Cartesian3</span><span class="token punctuation">(</span><span class="token number">4.0</span><span class="token punctuation">,</span> <span class="token number">5.0</span><span class="token punctuation">,</span> <span class="token number">6.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">text</span> <span class="token operator">:</span> <span class="token string">'Another label'</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+            <h5>
+              Demo:
+            </h5>
+            <ul class="see-list">
+              <li>
+                <a href="https://sandcastle.cesium.com/index.html?src=Labels.html" target="_blank">
+                  Cesium Sandcastle Labels Demo
+                </a>
+              </li>
+            </ul>
+            <h5>
+              See:
+            </h5>
+            <ul class="see-list">
+              <li>
+                <a href="LabelCollection.html#add">
+                  LabelCollection#add
+                </a>
+              </li>
+              <li>
+                <a href="LabelCollection.html#remove">
+                  LabelCollection#remove
+                </a>
+              </li>
+              <li>
+                <a href="Label.html">
+                  Label
+                </a>
+              </li>
+              <li>
+                <a href="BillboardCollection.html">
+                  BillboardCollection
+                </a>
+              </li>
+            </ul>
+          </dl>
+        </div>
+        <h3 class="subsection-title">
+          Members
+        </h3>
+        <div class="nameContainer">
+          <h4 class="name" id="blendOption">
+            <a class="doc-link" href="#blendOption">
+            </a>
+            blendOption
+            <span class="type-signature">
+              :
+              <a href="global.html#BlendOption">
+                BlendOption
+              </a>
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L686"
+                target="_blank">
+                Scene/LabelCollection.js 686
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          标签混合选项。默认值用于呈现不透明和半透明标签。但是，如果所有标签都完全不透明或完全半透明，则将技术设置为 BlendOption.OPAQUE 或 BlendOption.TRANSLUCENT 可以将性能提高多达 2
+          倍。
+        </div>
+        <dl class="details">
+          <span class="details-header">
+            Default Value:
+          </span>
+          <code class="language-javascript">
+        BlendOption<span class="token punctuation">.</span><span class="token constant">OPAQUE_AND_TRANSLUCENT</span>
+       </code>
+        </dl>
+        <div class="nameContainer">
+          <h4 class="name" id="debugShowBoundingVolume">
+            <a class="doc-link" href="#debugShowBoundingVolume">
+            </a>
+            debugShowBoundingVolume
+            <span class="type-signature">
+              : Boolean
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L673"
+                target="_blank">
+                Scene/LabelCollection.js 673
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          该属性仅用于调试；它不是用于生产用途，也不是优化的。
+          <p>
+            为图元中的每个绘制命令绘制边界球体。
+          </p>
+        </div>
+        <dl class="details">
+          <span class="details-header">
+            Default Value:
+          </span>
+          <code class="language-javascript">
+        <span class="token boolean">false</span>
+       </code>
+        </dl>
+        <div class="nameContainer">
+          <h4 class="name" id="length">
+            <a class="doc-link" href="#length">
+            </a>
+            length
+            <span class="type-signature">
+              : Number
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L700"
+                target="_blank">
+                Scene/LabelCollection.js 700
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          返回此集合中的标签数。这通常与
+          <a href="LabelCollection.html#get">
+            <code>
+         LabelCollection#get
+        </code>
+          </a>
+          一起使用以遍历集合中的所有标签。
+        </div>
+        <dl class="details">
+        </dl>
+        <div class="nameContainer">
+          <h4 class="name" id="modelMatrix">
+            <a class="doc-link" href="#modelMatrix">
+            </a>
+            modelMatrix
+            <span class="type-signature">
+              :
+              <a href="Matrix4.html">
+                Matrix4
+              </a>
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L659"
+                target="_blank">
+                Scene/LabelCollection.js 659
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          将此集合中的每个标签从模型转换为世界坐标的 4x4 转换矩阵。当这是单位矩阵时，标签是在世界坐标系中绘制的，即地球的 WGS84 坐标系。可以通过提供不同的变换矩阵来使用本地参考帧，就像
+          <a href="Transforms.html#.eastNorthUpToFixedFrame">
+            <code>
+         Transforms.eastNorthUpToFixedFrame
+        </code>
+          </a>
+          返回的那样。
+        </div>
+        <dl class="details">
+          <span class="details-header">
+            Default Value:
+          </span>
+          <code class="language-javascript">
+
+
+          Matrix4<span class="token punctuation">.</span><span class="token constant">IDENTITY</span>
+         
+        
+       </code>
+          <h5>
+            Example:
+          </h5>
+          <pre class="language-javascript"
+            tabindex="0"><code class="language-javascript"><span class="token keyword">const</span> center <span class="token operator">=</span> Cesium<span class="token punctuation">.</span>Cartesian3<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">75.59777</span><span class="token punctuation">,</span> <span class="token number">40.03883</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ labels<span class="token punctuation">.</span>modelMatrix <span class="token operator">=</span> Cesium<span class="token punctuation">.</span>Transforms<span class="token punctuation">.</span><span class="token function">eastNorthUpToFixedFrame</span><span class="token punctuation">(</span>center<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ labels<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   <span class="token literal-property property">position</span> <span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Cartesian3</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">text</span>     <span class="token operator">:</span> <span class="token string">'Center'</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ labels<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   <span class="token literal-property property">position</span> <span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Cartesian3</span><span class="token punctuation">(</span><span class="token number">1000000.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">text</span>     <span class="token operator">:</span> <span class="token string">'East'</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ labels<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   <span class="token literal-property property">position</span> <span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Cartesian3</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1000000.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">text</span>     <span class="token operator">:</span> <span class="token string">'North'</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ labels<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   <span class="token literal-property property">position</span> <span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Cartesian3</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1000000.0</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">text</span>     <span class="token operator">:</span> <span class="token string">'Up'</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+        </dl>
+        <div class="nameContainer">
+          <h4 class="name" id="show">
+            <a class="doc-link" href="#show">
+            </a>
+            show
+            <span class="type-signature">
+              : Boolean
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L628"
+                target="_blank">
+                Scene/LabelCollection.js 628
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          确定是否显示此集合中的标签。
+        </div>
+        <dl class="details">
+          <span class="details-header">
+            Default Value:
+          </span>
+          <code class="language-javascript">
+        <span class="token boolean">true</span>
+       </code>
+        </dl>
+        <h3 class="subsection-title">
+          Methods
+        </h3>
+        <div class="nameContainer">
+          <h4 class="name" id="add">
+            <a class="doc-link" href="#add">
+            </a>
+            add
+            <span class="signature">
+              (
+              <span class="optional">
+                options
+              </span>
+              )
+            </span>
+            →
+            <span class="type-signature returnType">
+              <a href="Label.html">
+                Label
+              </a>
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L759"
+                target="_blank">
+                Scene/LabelCollection.js 759
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          创建具有指定初始属性的标签并将其添加到集合中。返回添加的标签，以便以后可以修改或从集合中删除。
+        </div>
+        <h5>
+          Performance:
+        </h5>
+        <p class="description">
+          调用
+          <code>
+        add
+       </code>
+          是预期的恒定时间。但是，集合的顶点缓冲区被重写；此操作是
+          <code>
+        O(n)
+       </code>
+          并且还会导致 CPU 到 GPU 开销。为了获得最佳性能，请在调用
+          <code>
+        update
+       </code>
+          之前添加尽可能多的广告牌。
+        </p>
+        <table class="params">
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Type
+              </th>
+              <th class="last">
+                Description
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="name">
+                <code>
+           options
+          </code>
+              </td>
+              <td class="type">
+                <span class="param-type">
+                  Object
+                </span>
+              </td>
+              <td class="description last">
+                <span class="optional">
+                  可选
+                </span>
+                描述标签属性的模板，如示例 1 所示。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h5>
+          Returns:
+        </h5>
+
+
+        <div class="param-desc">
+          添加到集合中的标签。
+        </div>
+
+        <h5>
+          Throws:
+        </h5>
+        <ul>
+          <li>
+
+
+            <div class="param-desc">
+              <span class="param-type">
+                <a href="DeveloperError.html">
+                  DeveloperError
+                </a>
+              </span>
+              : 该对象被销毁，即调用了destroy()。
+            </div>
+
+
+          </li>
+        </ul>
+        <dl class="details">
+          <h5>
+            Examples:
+          </h5>
+          <pre class="language-javascript"
+            tabindex="0"><code class="language-javascript"><span class="token comment">// Example 1:  Add a label, specifying all the default values.</span>
+ <span class="token keyword">const</span> l <span class="token operator">=</span> labels<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   <span class="token literal-property property">show</span> <span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">position</span> <span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Cartesian3<span class="token punctuation">.</span><span class="token constant">ZERO</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">text</span> <span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">font</span> <span class="token operator">:</span> <span class="token string">'30px sans-serif'</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">fillColor</span> <span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Color<span class="token punctuation">.</span><span class="token constant">WHITE</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">outlineColor</span> <span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Color<span class="token punctuation">.</span><span class="token constant">BLACK</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">outlineWidth</span> <span class="token operator">:</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">showBackground</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">backgroundColor</span> <span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Color</span><span class="token punctuation">(</span><span class="token number">0.165</span><span class="token punctuation">,</span> <span class="token number">0.165</span><span class="token punctuation">,</span> <span class="token number">0.165</span><span class="token punctuation">,</span> <span class="token number">0.8</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">backgroundPadding</span> <span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Cesium<span class="token punctuation">.</span>Cartesian2</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">style</span> <span class="token operator">:</span> Cesium<span class="token punctuation">.</span>LabelStyle<span class="token punctuation">.</span><span class="token constant">FILL</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">pixelOffset</span> <span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Cartesian2<span class="token punctuation">.</span><span class="token constant">ZERO</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">eyeOffset</span> <span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Cartesian3<span class="token punctuation">.</span><span class="token constant">ZERO</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">horizontalOrigin</span> <span class="token operator">:</span> Cesium<span class="token punctuation">.</span>HorizontalOrigin<span class="token punctuation">.</span><span class="token constant">LEFT</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">verticalOrigin</span> <span class="token operator">:</span> Cesium<span class="token punctuation">.</span>VerticalOrigin<span class="token punctuation">.</span><span class="token constant">BASELINE</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">scale</span> <span class="token operator">:</span> <span class="token number">1.0</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">translucencyByDistance</span> <span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">pixelOffsetScaleByDistance</span> <span class="token operator">:</span> <span class="token keyword">undefined</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">heightReference</span> <span class="token operator">:</span> HeightReference<span class="token punctuation">.</span><span class="token constant">NONE</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">distanceDisplayCondition</span> <span class="token operator">:</span> <span class="token keyword">undefined</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+          <pre class="language-javascript"
+            tabindex="0"><code class="language-javascript"><span class="token comment">// Example 2:  Specify only the label's cartographic position,</span>
+ <span class="token comment">// text, and font.</span>
+ <span class="token keyword">const</span> l <span class="token operator">=</span> labels<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+   <span class="token literal-property property">position</span> <span class="token operator">:</span> Cesium<span class="token punctuation">.</span>Cartesian3<span class="token punctuation">.</span><span class="token function">fromRadians</span><span class="token punctuation">(</span>longitude<span class="token punctuation">,</span> latitude<span class="token punctuation">,</span> height<span class="token punctuation">)</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">text</span> <span class="token operator">:</span> <span class="token string">'Hello World'</span><span class="token punctuation">,</span>
+   <span class="token literal-property property">font</span> <span class="token operator">:</span> <span class="token string">'24px Helvetica'</span><span class="token punctuation">,</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+          <h5>
+            See:
+          </h5>
+          <ul class="see-list">
+            <li>
+              <a href="LabelCollection.html#remove">
+                LabelCollection#remove
+              </a>
+            </li>
+            <li>
+              <a href="LabelCollection.html#removeAll">
+                LabelCollection#removeAll
+              </a>
+            </li>
+          </ul>
+        </dl>
+        <div class="nameContainer">
+          <h4 class="name" id="contains">
+            <a class="doc-link" href="#contains">
+            </a>
+            contains
+            <span class="signature">
+              (label)
+            </span>
+            →
+            <span class="type-signature returnType">
+              Boolean
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L839"
+                target="_blank">
+                Scene/LabelCollection.js 839
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          检查此集合是否包含给定标签。
+        </div>
+        <table class="params">
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Type
+              </th>
+              <th class="last">
+                Description
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="name">
+                <code>
+           label
+          </code>
+              </td>
+              <td class="type">
+                <span class="param-type">
+                  <a href="Label.html">
+                    Label
+                  </a>
+                </span>
+              </td>
+              <td class="description last">
+                要检查的标签。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h5>
+          Returns:
+        </h5>
+
+
+        <div class="param-desc">
+          如果此集合包含标签，则为 true，否则为 false。
+        </div>
+
+        <dl class="details">
+          <h5>
+            See:
+          </h5>
+          <ul class="see-list">
+            <li>
+              <a href="LabelCollection.html#get">
+                LabelCollection#get
+              </a>
+            </li>
+          </ul>
+        </dl>
+        <div class="nameContainer">
+          <h4 class="name" id="destroy">
+            <a class="doc-link" href="#destroy">
+            </a>
+            destroy
+            <span class="signature">
+              ()
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L984"
+                target="_blank">
+                Scene/LabelCollection.js 984
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          销毁此对象持有的 WebGL 资源。销毁一个对象允许确定性地释放 WebGL 资源，而不是依赖垃圾收集器来销毁这个对象。
+          <br>
+          <br>
+          一旦一个对象被销毁，它就不应该被使用；调用
+          <code>
+        isDestroyed
+       </code>
+          以外的任何函数都将导致
+          <a href="DeveloperError.html">
+            <code>
+         DeveloperError
+        </code>
+          </a>
+          异常。因此，如示例中所做的那样，将返回值 (
+          <code>
+        undefined
+       </code>
+          ) 分配给对象。
+        </div>
+        <h5>
+          Throws:
+        </h5>
+        <ul>
+          <li>
+
+
+            <div class="param-desc">
+              <span class="param-type">
+                <a href="DeveloperError.html">
+                  DeveloperError
+                </a>
+              </span>
+              : 该对象被销毁，即调用了destroy()。
+            </div>
+
+
+          </li>
+        </ul>
+        <dl class="details">
+          <h5>
+            Example:
+          </h5>
+          <pre class="language-javascript"
+            tabindex="0"><code class="language-javascript">labels <span class="token operator">=</span> labels <span class="token operator">&amp;&amp;</span> labels<span class="token punctuation">.</span><span class="token function">destroy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+          <h5>
+            See:
+          </h5>
+          <ul class="see-list">
+            <li>
+              <a href="LabelCollection.html#isDestroyed">
+                LabelCollection#isDestroyed
+              </a>
+            </li>
+          </ul>
+        </dl>
+        <div class="nameContainer">
+          <h4 class="name" id="get">
+            <a class="doc-link" href="#get">
+            </a>
+            get
+            <span class="signature">
+              (index)
+            </span>
+            →
+            <span class="type-signature returnType">
+              <a href="Label.html">
+                Label
+              </a>
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L871"
+                target="_blank">
+                Scene/LabelCollection.js 871
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          返回集合中指定索引处的标签。索引从零开始，随着标签的添加而增加。删除标签会将其后的所有标签向左移动，从而更改它们的索引。此函数通常与
+          <a href="LabelCollection.html#length">
+            <code>
+         LabelCollection#length
+        </code>
+          </a>
+          一起使用，以遍历集合中的所有标签。
+        </div>
+        <h5>
+          Performance:
+        </h5>
+        <p class="description">
+          预期的恒定时间。如果从集合中删除标签并且未调用
+          <a href="Scene.html#render">
+            <code>
+         Scene#render
+        </code>
+          </a>
+          ，则执行隐式
+          <code>
+        O(n)
+       </code>
+          操作。
+        </p>
+        <table class="params">
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Type
+              </th>
+              <th class="last">
+                Description
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="name">
+                <code>
+           index
+          </code>
+              </td>
+              <td class="type">
+                <span class="param-type">
+                  Number
+                </span>
+              </td>
+              <td class="description last">
+                广告牌的从零开始的索引。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h5>
+          Returns:
+        </h5>
+
+
+        <div class="param-desc">
+          指定索引处的标签。
+        </div>
+
+        <h5>
+          Throws:
+        </h5>
+        <ul>
+          <li>
+
+
+            <div class="param-desc">
+              <span class="param-type">
+                <a href="DeveloperError.html">
+                  DeveloperError
+                </a>
+              </span>
+              : 该对象被销毁，即调用了destroy()。
+            </div>
+
+
+          </li>
+        </ul>
+        <dl class="details">
+          <h5>
+            Example:
+          </h5>
+          <pre class="language-javascript" tabindex="0"><code class="language-javascript"><span class="token comment">// Toggle the show property of every label in the collection</span>
+ <span class="token keyword">const</span> len <span class="token operator">=</span> labels<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+ <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">const</span> l <span class="token operator">=</span> billboards<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   l<span class="token punctuation">.</span>show <span class="token operator">=</span> <span class="token operator">!</span>l<span class="token punctuation">.</span>show<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span></code></pre>
+          <h5>
+            See:
+          </h5>
+          <ul class="see-list">
+            <li>
+              <a href="LabelCollection.html#length">
+                LabelCollection#length
+              </a>
+            </li>
+          </ul>
+        </dl>
+        <div class="nameContainer">
+          <h4 class="name" id="isDestroyed">
+            <a class="doc-link" href="#isDestroyed">
+            </a>
+            isDestroyed
+            <span class="signature">
+              ()
+            </span>
+            →
+            <span class="type-signature returnType">
+              Boolean
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L964"
+                target="_blank">
+                Scene/LabelCollection.js 964
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          如果此对象被销毁，则返回 true；否则为假。
+          <br>
+          <br>
+          如果该对象被销毁，则不应使用；调用
+          <code>
+        isDestroyed
+       </code>
+          以外的任何函数都会导致
+          <a href="DeveloperError.html">
+            <code>
+         DeveloperError
+        </code>
+          </a>
+          异常。
+        </div>
+        <h5>
+          Returns:
+        </h5>
+
+
+        <div class="param-desc">
+          如果此对象被销毁，则为真；否则为假。
+        </div>
+
+        <dl class="details">
+          <h5>
+            See:
+          </h5>
+          <ul class="see-list">
+            <li>
+              <a href="LabelCollection.html#destroy">
+                LabelCollection#destroy
+              </a>
+            </li>
+          </ul>
+        </dl>
+        <div class="nameContainer">
+          <h4 class="name" id="remove">
+            <a class="doc-link" href="#remove">
+            </a>
+            remove
+            <span class="signature">
+              (label)
+            </span>
+            →
+            <span class="type-signature returnType">
+              Boolean
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L791"
+                target="_blank">
+                Scene/LabelCollection.js 791
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          从集合中删除标签。删除后，标签将不再可用。
+        </div>
+        <h5>
+          Performance:
+        </h5>
+        <p class="description">
+          调用
+          <code>
+        remove
+       </code>
+          是预期的恒定时间。但是，集合的顶点缓冲区被重写 - 一个
+          <code>
+        O(n)
+       </code>
+          操作，也会导致 CPU 到 GPU 开销。为了获得最佳性能，请在调用
+          <code>
+        update
+       </code>
+          之前删除尽可能多的标签。如果您打算暂时隐藏标签，调用
+          <a href="Label.html#show">
+            <code>
+         Label#show
+        </code>
+          </a>
+          通常比删除并重新添加标签更有效。
+        </p>
+        <table class="params">
+          <thead>
+            <tr>
+              <th>
+                Name
+              </th>
+              <th>
+                Type
+              </th>
+              <th class="last">
+                Description
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="name">
+                <code>
+           label
+          </code>
+              </td>
+              <td class="type">
+                <span class="param-type">
+                  <a href="Label.html">
+                    Label
+                  </a>
+                </span>
+              </td>
+              <td class="description last">
+                要删除的标签。
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h5>
+          Returns:
+        </h5>
+
+
+        <div class="param-desc">
+          如果标签被移除，则为
+          <code>
+     true
+    </code>
+          ；如果在集合中找不到标签，则
+          <code>
+     false
+    </code>
+          。
+        </div>
+
+        <h5>
+          Throws:
+        </h5>
+        <ul>
+          <li>
+
+
+            <div class="param-desc">
+              <span class="param-type">
+                <a href="DeveloperError.html">
+                  DeveloperError
+                </a>
+              </span>
+              : 该对象被销毁，即调用了destroy()。
+            </div>
+
+
+          </li>
+        </ul>
+        <dl class="details">
+          <h5>
+            Example:
+          </h5>
+          <pre class="language-javascript"
+            tabindex="0"><code class="language-javascript"><span class="token keyword">const</span> l <span class="token operator">=</span> labels<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ labels<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span>l<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Returns true</span></code></pre>
+          <h5>
+            See:
+          </h5>
+          <ul class="see-list">
+            <li>
+              <a href="LabelCollection.html#add">
+                LabelCollection#add
+              </a>
+            </li>
+            <li>
+              <a href="LabelCollection.html#removeAll">
+                LabelCollection#removeAll
+              </a>
+            </li>
+            <li>
+              <a href="Label.html#show">
+                Label#show
+              </a>
+            </li>
+          </ul>
+        </dl>
+        <div class="nameContainer">
+          <h4 class="name" id="removeAll">
+            <a class="doc-link" href="#removeAll">
+            </a>
+            removeAll
+            <span class="signature">
+              ()
+            </span>
+            <div class="source-link rightLinks">
+              <a href="https://github.com/CesiumGS/cesium/blob/1.95/Source/Scene/LabelCollection.js#L820"
+                target="_blank">
+                Scene/LabelCollection.js 820
+              </a>
+            </div>
+          </h4>
+        </div>
+        <div class="description">
+          从集合中删除所有标签。
+        </div>
+        <h5>
+          Performance:
+        </h5>
+        <p class="description">
+          <code>
+        O(n)
+       </code>
+          。从集合中删除所有标签然后添加新标签比完全创建新集合更有效。
+        </p>
+        <h5>
+          Throws:
+        </h5>
+        <ul>
+          <li>
+
+
+            <div class="param-desc">
+              <span class="param-type">
+                <a href="DeveloperError.html">
+                  DeveloperError
+                </a>
+              </span>
+              : 该对象被销毁，即调用了destroy()。
+            </div>
+
+
+          </li>
+        </ul>
+        <dl class="details">
+          <h5>
+            Example:
+          </h5>
+          <pre class="language-javascript"
+            tabindex="0"><code class="language-javascript">labels<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ labels<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ labels<span class="token punctuation">.</span><span class="token function">removeAll</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+          <h5>
+            See:
+          </h5>
+          <ul class="see-list">
+            <li>
+              <a href="LabelCollection.html#add">
+                LabelCollection#add
+              </a>
+            </li>
+            <li>
+              <a href="LabelCollection.html#remove">
+                LabelCollection#remove
+              </a>
+            </li>
+          </ul>
+        </dl>
+      </article>
+    </section>
+
+    <footer>
+      翻译 zhangyuru
+    </footer>
+  </div>
+
+  <div class="nav nav1">
+    <input type="text" class="classFilter" id="ClassFilter" placeholder="Search">
+    <div class="menu">
+      <div id="ClassList">
+        <h5>核心引擎</h5>
+        <ul>
+          <li data-name="Appearance【外型】">
+            <a href="Appearance.html">Appearance【外型】</a>
+          </li>
+
+          <li data-name="ArcGisMapServerImageryProvider【ArcGis地图服务器图像提供商】">
+            <a href="ArcGisMapServerImageryProvider.html">ArcGisMapServerImageryProvider【ArcGis地图服务器图像提供商】</a>
+          </li>
+
+          <li data-name="ArcGISTiledElevationTerrainProvider【ArcGIS平铺高程地形提供者】">
+            <a href="ArcGISTiledElevationTerrainProvider.html">ArcGISTiledElevationTerrainProvider【ArcGIS平铺高程地形提供者】</a>
+          </li>
+
+          <li data-name="ArcType【弧型】">
+            <a href="global.html#ArcType">ArcType【弧型】</a>
+          </li>
+
+          <li data-name="AssociativeArray【关联数组】">
+            <a href="AssociativeArray.html">AssociativeArray【关联数组】</a>
+          </li>
+
+          <li data-name="Axis【轴】">
+            <a href="global.html#Axis">Axis【轴】</a>
+          </li>
+
+          <li data-name="AxisAlignedBoundingBox【轴对齐边界框】">
+            <a href="AxisAlignedBoundingBox.html">AxisAlignedBoundingBox【轴对齐边界框】</a>
+          </li>
+
+          <li data-name="barycentricCoordinates【重心坐标】">
+            <a href="global.html#barycentricCoordinates">barycentricCoordinates【重心坐标】</a>
+          </li>
+
+          <li data-name="Billboard【广告牌】">
+            <a href="Billboard.html">Billboard【广告牌】</a>
+          </li>
+
+          <li data-name="BillboardCollection【广告牌集合】">
+            <a href="BillboardCollection.html">BillboardCollection【广告牌集合】</a>
+          </li>
+
+          <li data-name="BillboardGraphics【广告牌图形】">
+            <a href="BillboardGraphics.html">BillboardGraphics【广告牌图形】</a>
+          </li>
+
+          <li data-name="BillboardVisualizer【广告牌展示台】">
+            <a href="BillboardVisualizer.html">BillboardVisualizer【广告牌展示台】</a>
+          </li>
+
+          <li data-name="binarySearch【二分查找】">
+            <a href="global.html#binarySearch">binarySearch【二分查找】</a>
+          </li>
+
+          <li data-name="binarySearchComparator【二元搜索比较器】">
+            <a href="global.html#binarySearchComparator">binarySearchComparator【二元搜索比较器】</a>
+          </li>
+
+          <li data-name="BingMapsGeocoderService【必应地图地理编码器服务】">
+            <a href="BingMapsGeocoderService.html">BingMapsGeocoderService【必应地图地理编码器服务】</a>
+          </li>
+
+          <li data-name="BingMapsImageryProvider【必应地图图像提供商】">
+            <a href="BingMapsImageryProvider.html">BingMapsImageryProvider【必应地图图像提供商】</a>
+          </li>
+
+          <li data-name="BingMapsStyle【Bing地图样式】">
+            <a href="global.html#BingMapsStyle">BingMapsStyle【Bing地图样式】</a>
+          </li>
+
+          <li data-name="BlendEquation【混合方程】">
+            <a href="global.html#BlendEquation">BlendEquation【混合方程】</a>
+          </li>
+
+          <li data-name="BlendFunction【混合函数】">
+            <a href="global.html#BlendFunction">BlendFunction【混合函数】</a>
+          </li>
+
+          <li data-name="BlendingState【混合状态】">
+            <a href="BlendingState.html">BlendingState【混合状态】</a>
+          </li>
+
+          <li data-name="BlendOption【混合选项】">
+            <a href="global.html#BlendOption">BlendOption【混合选项】</a>
+          </li>
+
+          <li data-name="BoundingRectangle【边界矩形】">
+            <a href="BoundingRectangle.html">BoundingRectangle【边界矩形】</a>
+          </li>
+
+          <li data-name="BoundingSphere【包围球】">
+            <a href="BoundingSphere.html">BoundingSphere【包围球】</a>
+          </li>
+
+          <li data-name="BoxEmitter【盒子发射器】">
+            <a href="BoxEmitter.html">BoxEmitter【盒子发射器】</a>
+          </li>
+
+          <li data-name="BoxGeometry【几何框】">
+            <a href="BoxGeometry.html">BoxGeometry【几何框】</a>
+          </li>
+
+          <li data-name="BoxGeometryUpdater【几何框修改】">
+            <a href="BoxGeometryUpdater.html">BoxGeometryUpdater【几何框修改】</a>
+          </li>
+
+          <li data-name="BoxGraphics【方框图形】">
+            <a href="BoxGraphics.html">BoxGraphics【方框图形】</a>
+          </li>
+
+          <li data-name="BoxOutlineGeometry【轮廓几何框】">
+            <a href="BoxOutlineGeometry.html">BoxOutlineGeometry【轮廓几何框】</a>
+          </li>
+
+          <li data-name="buildModuleUrl【构建模块Url】">
+            <a href="global.html#buildModuleUrl">buildModuleUrl【构建模块Url】</a>
+          </li>
+
+          <li data-name="CallbackProperty【回调属性】">
+            <a href="CallbackProperty.html">CallbackProperty【回调属性】</a>
+          </li>
+
+          <li data-name="Camera【相机】">
+            <a href="Camera.html">Camera【相机】</a>
+          </li>
+
+          <li data-name="CameraEventAggregator【相机事件聚合器】">
+            <a href="CameraEventAggregator.html">CameraEventAggregator【相机事件聚合器】</a>
+          </li>
+
+          <li data-name="CameraEventType【相机事件类型】">
+            <a href="global.html#CameraEventType">CameraEventType【相机事件类型】</a>
+          </li>
+
+          <li data-name="cancelAnimationFrame【取消动画帧】">
+            <a href="global.html#cancelAnimationFrame">cancelAnimationFrame【取消动画帧】</a>
+          </li>
+
+          <li data-name="Cartesian2【笛卡尔坐标2】">
+            <a href="Cartesian2.html">Cartesian2【笛卡尔坐标2】</a>
+          </li>
+
+          <li data-name="Cartesian3【笛卡尔坐标3】">
+            <a href="Cartesian3.html">Cartesian3【笛卡尔坐标3】</a>
+          </li>
+
+          <li data-name="Cartesian4【笛卡尔坐标4】">
+            <a href="Cartesian4.html">Cartesian4【笛卡尔坐标4】</a>
+          </li>
+
+          <li data-name="Cartographic【制图】">
+            <a href="Cartographic.html">Cartographic【制图】</a>
+          </li>
+
+          <li data-name="CartographicGeocoderService【制图地理编码器服务】">
+            <a href="CartographicGeocoderService.html">CartographicGeocoderService【制图地理编码器服务】</a>
+          </li>
+
+          <li data-name="CatmullRomSpline【CatmullRomSpline插值算法】">
+            <a href="CatmullRomSpline.html">CatmullRomSpline【CatmullRomSpline插值算法】</a>
+          </li>
+
+          <li data-name="Cesium3DTile【三维瓦片集中的单个瓦片】">
+            <a href="Cesium3DTile.html">Cesium3DTile【三维瓦片集中的单个瓦片】</a>
+          </li>
+
+          <li data-name="Cesium3DTileColorBlendMode【三维瓦片颜色混合模式】">
+            <a href="global.html#Cesium3DTileColorBlendMode">Cesium3DTileColorBlendMode【三维瓦片颜色混合模式】</a>
+          </li>
+
+          <li data-name="Cesium3DTileContent【单个三维瓦片中的所有的要素集合组成内容】">
+            <a href="Cesium3DTileContent.html">Cesium3DTileContent【单个三维瓦片中的所有的要素集合组成内容】</a>
+          </li>
+
+          <li data-name="Cesium3DTileFeature【单个三维瓦片内容(要素集合)中单个要素】">
+            <a href="Cesium3DTileFeature.html">Cesium3DTileFeature【单个三维瓦片内容(要素集合)中单个要素】</a>
+          </li>
+
+          <li data-name="Cesium3DTilePointFeature【三维瓦片点特性】">
+            <a href="Cesium3DTilePointFeature.html">Cesium3DTilePointFeature【三维瓦片点特性】</a>
+          </li>
+
+          <li data-name="Cesium3DTileset【三维瓦片集】">
+            <a href="Cesium3DTileset.html">Cesium3DTileset【三维瓦片集】</a>
+          </li>
+
+          <li data-name="Cesium3DTilesetGraphics【三维瓦片集图形】">
+            <a href="Cesium3DTilesetGraphics.html">Cesium3DTilesetGraphics【三维瓦片集图形】</a>
+          </li>
+
+          <li data-name="Cesium3DTilesetVisualizer【三维瓦片集可视化工具界面】">
+            <a href="Cesium3DTilesetVisualizer.html">Cesium3DTilesetVisualizer【三维瓦片集可视化工具界面】</a>
+          </li>
+
+          <li data-name="Cesium3DTileStyle【三维瓦片样式】">
+            <a href="Cesium3DTileStyle.html">Cesium3DTileStyle【三维瓦片样式】</a>
+          </li>
+
+          <li data-name="CesiumTerrainProvider【地形提供商】">
+            <a href="CesiumTerrainProvider.html">CesiumTerrainProvider【地形提供商】</a>
+          </li>
+
+          <li data-name="CesiumWidget【包含Cesium场景的小部件】">
+            <a href="CesiumWidget.html">CesiumWidget【包含Cesium场景的小部件】</a>
+          </li>
+
+          <li data-name="CheckerboardMaterialProperty【棋盘材质属性】">
+            <a href="CheckerboardMaterialProperty.html">CheckerboardMaterialProperty【棋盘材质属性】</a>
+          </li>
+
+          <li data-name="CircleEmitter【圆形发射器】">
+            <a href="CircleEmitter.html">CircleEmitter【圆形发射器】</a>
+          </li>
+
+          <li data-name="CircleGeometry【圆几何】">
+            <a href="CircleGeometry.html">CircleGeometry【圆几何】</a>
+          </li>
+
+          <li data-name="CircleOutlineGeometry【圆形轮廓几何】">
+            <a href="CircleOutlineGeometry.html">CircleOutlineGeometry【圆形轮廓几何】</a>
+          </li>
+
+          <li data-name="ClassificationPrimitive【原始的分类】">
+            <a href="ClassificationPrimitive.html">ClassificationPrimitive【原始的分类】</a>
+          </li>
+
+          <li data-name="ClassificationType【分类类型】">
+            <a href="global.html#ClassificationType">ClassificationType【分类类型】</a>
+          </li>
+
+          <li data-name="ClippingPlane【裁剪平面】">
+            <a href="ClippingPlane.html">ClippingPlane【裁剪平面】</a>
+          </li>
+
+          <li data-name="ClippingPlaneCollection【裁剪平面集合】">
+            <a href="ClippingPlaneCollection.html">ClippingPlaneCollection【裁剪平面集合】</a>
+          </li>
+
+          <li data-name="Clock【时钟】">
+            <a href="Clock.html">Clock【时钟】</a>
+          </li>
+
+          <li data-name="ClockRange【时钟范围】">
+            <a href="global.html#ClockRange">ClockRange【时钟范围】</a>
+          </li>
+
+          <li data-name="ClockStep【时钟步进】">
+            <a href="global.html#ClockStep">ClockStep【时钟步进】</a>
+          </li>
+
+          <li data-name="clone【克隆】">
+            <a href="global.html#clone">clone【克隆】</a>
+          </li>
+
+          <li data-name="CloudCollection【云集】">
+            <a href="CloudCollection.html">CloudCollection【云集】</a>
+          </li>
+
+          <li data-name="CloudType【云类型】">
+            <a href="global.html#CloudType">CloudType【云类型】</a>
+          </li>
+
+          <li data-name="Color【颜色】">
+            <a href="Color.html">Color【颜色】</a>
+          </li>
+
+          <li data-name="ColorBlendMode【颜色混合模式】">
+            <a href="global.html#ColorBlendMode">ColorBlendMode【颜色混合模式】</a>
+          </li>
+
+          <li data-name="ColorGeometryInstanceAttribute【颜色几何实例属性】">
+            <a href="ColorGeometryInstanceAttribute.html">ColorGeometryInstanceAttribute【颜色几何实例属性】</a>
+          </li>
+
+          <li data-name="ColorMaterialProperty【颜色材质属性】">
+            <a href="ColorMaterialProperty.html">ColorMaterialProperty【颜色材质属性】</a>
+          </li>
+
+          <li data-name="combine【结合属性】">
+            <a href="global.html#combine">combine【结合属性】</a>
+          </li>
+
+          <li data-name="ComponentDatatype【组件数据类型】">
+            <a href="global.html#ComponentDatatype">ComponentDatatype【组件数据类型】</a>
+          </li>
+
+          <li data-name="CompositeEntityCollection【复合实体集合】">
+            <a href="CompositeEntityCollection.html">CompositeEntityCollection【复合实体集合】</a>
+          </li>
+
+          <li data-name="CompositeMaterialProperty【复合材料特性】">
+            <a href="CompositeMaterialProperty.html">CompositeMaterialProperty【复合材料特性】</a>
+          </li>
+
+          <li data-name="CompositePositionProperty【复合位置属性】">
+            <a href="CompositePositionProperty.html">CompositePositionProperty【复合位置属性】</a>
+          </li>
+
+          <li data-name="CompositeProperty【复合属性】">
+            <a href="CompositeProperty.html">CompositeProperty【复合属性】</a>
+          </li>
+
+          <li data-name="CompressedTextureBuffer【压缩纹理缓冲区】">
+            <a href="CompressedTextureBuffer.html">CompressedTextureBuffer【压缩纹理缓冲区】</a>
+          </li>
+
+          <li data-name="ConditionsExpression【条件表达式】">
+            <a href="ConditionsExpression.html">ConditionsExpression【条件表达式】</a>
+          </li>
+
+          <li data-name="ConeEmitter【锥形发射器】">
+            <a href="ConeEmitter.html">ConeEmitter【锥形发射器】</a>
+          </li>
+
+          <li data-name="ConstantPositionProperty【固定位置属性】">
+            <a href="ConstantPositionProperty.html">ConstantPositionProperty【固定位置属性】</a>
+          </li>
+
+          <li data-name="ConstantProperty【常量属性】">
+            <a href="ConstantProperty.html">ConstantProperty【常量属性】</a>
+          </li>
+
+          <li data-name="ConstantSpline【常数曲线】">
+            <a href="ConstantSpline.html">ConstantSpline【常数曲线】</a>
+          </li>
+
+          <li data-name="ContextOptions【上下文选项】">
+            <a href="global.html#ContextOptions">ContextOptions【上下文选项】</a>
+          </li>
+
+          <li data-name="CoplanarPolygonGeometry【共面多边形几何】">
+            <a href="CoplanarPolygonGeometry.html">CoplanarPolygonGeometry【共面多边形几何】</a>
+          </li>
+
+          <li data-name="CoplanarPolygonOutlineGeometry【共面多边形轮廓几何】">
+            <a href="CoplanarPolygonOutlineGeometry.html">CoplanarPolygonOutlineGeometry【共面多边形轮廓几何】</a>
+          </li>
+
+          <li data-name="CornerType【转角类型】">
+            <a href="global.html#CornerType">CornerType【转角类型】</a>
+          </li>
+
+          <li data-name="CorridorGeometry【走廊几何】">
+            <a href="CorridorGeometry.html">CorridorGeometry【走廊几何】</a>
+          </li>
+
+          <li data-name="CorridorGeometryUpdater【走廊几何修改】">
+            <a href="CorridorGeometryUpdater.html">CorridorGeometryUpdater【走廊几何修改】</a>
+          </li>
+
+          <li data-name="CorridorGraphics【走廊图形】">
+            <a href="CorridorGraphics.html">CorridorGraphics【走廊图形】</a>
+          </li>
+
+          <li data-name="CorridorOutlineGeometry【走廊轮廓几何】">
+            <a href="CorridorOutlineGeometry.html">CorridorOutlineGeometry【走廊轮廓几何】</a>
+          </li>
+
+          <li data-name="createElevationBandMaterial【创建组合多层颜色/渐变带并将它们映射到地形高度的材质】">
+            <a
+              href="global.html#createElevationBandMaterial">createElevationBandMaterial【创建组合多层颜色/渐变带并将它们映射到地形高度的材质】</a>
+          </li>
+
+          <li data-name="createElevationBandMaterialBand【创建从最低到最高优先级排序的波段列表】">
+            <a
+              href="global.html#createElevationBandMaterialBand">createElevationBandMaterialBand【创建从最低到最高优先级排序的波段列表】</a>
+          </li>
+
+          <li data-name="createElevationBandMaterialEntry【创建海拔条目列表】">
+            <a href="global.html#createElevationBandMaterialEntry">createElevationBandMaterialEntry【创建海拔条目列表】</a>
+          </li>
+
+          <li data-name="createGuid【创建全局唯一标识符 (GUID) 字符串】">
+            <a href="global.html#createGuid">createGuid【创建全局唯一标识符 (GUID) 字符串】</a>
+          </li>
+
+          <li data-name="createOsmBuildings【创建Osm建筑物】">
+            <a href="global.html#createOsmBuildings">createOsmBuildings【创建Osm建筑物】</a>
+          </li>
+
+          <li data-name="createTangentSpaceDebugPrimitive【创建切线空间调试原型】">
+            <a href="global.html#createTangentSpaceDebugPrimitive">createTangentSpaceDebugPrimitive【创建切线空间调试原型】</a>
+          </li>
+
+          <li data-name="createWorldImagery【创建世界图像】">
+            <a href="global.html#createWorldImagery">createWorldImagery【创建世界图像】</a>
+          </li>
+
+          <li data-name="createWorldTerrain【创建世界地形】">
+            <a href="global.html#createWorldTerrain">createWorldTerrain【创建世界地形】</a>
+          </li>
+
+          <li data-name="Credit【信用】">
+            <a href="Credit.html">Credit【信用】</a>
+          </li>
+
+          <li data-name="CreditDisplay【信用显示】">
+            <a href="CreditDisplay.html">CreditDisplay【信用显示】</a>
+          </li>
+
+          <li data-name="CubicRealPolynomial【三次实多项式】">
+            <a href="CubicRealPolynomial.html">CubicRealPolynomial【三次实多项式】</a>
+          </li>
+
+          <li data-name="CullFace【剔除面】">
+            <a href="global.html#CullFace">CullFace【剔除面】</a>
+          </li>
+
+          <li data-name="CullingVolume【剔除体积】">
+            <a href="CullingVolume.html">CullingVolume【剔除体积】</a>
+          </li>
+
+          <li data-name="CumulusCloud【3D场景中的积云广告牌】">
+            <a href="CumulusCloud.html">CumulusCloud【3D场景中的积云广告牌】</a>
+          </li>
+
+          <li data-name="CustomDataSource【自定义数据源】">
+            <a href="CustomDataSource.html">CustomDataSource【自定义数据源】</a>
+          </li>
+
+          <li data-name="CustomHeightmapTerrainProvider【自定义高度地图地形提供程序】">
+            <a href="CustomHeightmapTerrainProvider.html">CustomHeightmapTerrainProvider【自定义高度地图地形提供程序】</a>
+          </li>
+
+          <li data-name="CustomShader【自定义着色器】">
+            <a href="CustomShader.html">CustomShader【自定义着色器】</a>
+          </li>
+
+          <li data-name="CustomShaderMode【自定义着色器模式】">
+            <a href="global.html#CustomShaderMode">CustomShaderMode【自定义着色器模式】</a>
+          </li>
+
+          <li data-name="CustomShaderTranslucencyMode【自定义着色器半透明模式】">
+            <a href="global.html#CustomShaderTranslucencyMode">CustomShaderTranslucencyMode【自定义着色器半透明模式】</a>
+          </li>
+
+          <li data-name="CylinderGeometry【圆柱体几何】">
+            <a href="CylinderGeometry.html">CylinderGeometry【圆柱体几何】</a>
+          </li>
+
+          <li data-name="CylinderGeometryUpdater【圆柱体几何修改】">
+            <a href="CylinderGeometryUpdater.html">CylinderGeometryUpdater【圆柱体几何修改】</a>
+          </li>
+
+          <li data-name="CylinderGraphics【圆柱图形】">
+            <a href="CylinderGraphics.html">CylinderGraphics【圆柱图形】</a>
+          </li>
+
+          <li data-name="CylinderOutlineGeometry【圆柱轮廓几何】">
+            <a href="CylinderOutlineGeometry.html">CylinderOutlineGeometry【圆柱轮廓几何】</a>
+          </li>
+
+          <li data-name="CzmlDataSource【Czml数据源】">
+            <a href="CzmlDataSource.html">CzmlDataSource【Czml数据源】</a>
+          </li>
+
+          <li data-name="DataSource【数据源】">
+            <a href="DataSource.html">DataSource【数据源】</a>
+          </li>
+
+          <li data-name="DataSourceClock【数据源时钟】">
+            <a href="DataSourceClock.html">DataSourceClock【数据源时钟】</a>
+          </li>
+
+          <li data-name="DataSourceCollection【数据源集合】">
+            <a href="DataSourceCollection.html">DataSourceCollection【数据源集合】</a>
+          </li>
+
+          <li data-name="DataSourceDisplay【数据源显示】">
+            <a href="DataSourceDisplay.html">DataSourceDisplay【数据源显示】</a>
+          </li>
+
+          <li data-name="DebugAppearance【调试外观】">
+            <a href="DebugAppearance.html">DebugAppearance【绘制外观】</a>
+          </li>
+
+          <li data-name="DebugCameraPrimitive">
+            <a href="DebugCameraPrimitive.html">DebugCameraPrimitive【绘制相机视锥的轮廓】</a>
+          </li>
+
+          <li data-name="DebugModelMatrixPrimitive【绘制由转换为世界坐标的矩阵定义的参考系的轴】">
+            <a href="DebugModelMatrixPrimitive.html">DebugModelMatrixPrimitive【绘制由转换为世界坐标的矩阵定义的参考系的轴】</a>
+          </li>
+
+          <li data-name="DefaultProxy【默认代理】">
+            <a href="DefaultProxy.html">DefaultProxy【默认代理】</a>
+          </li>
+
+          <li data-name="defaultValue【默认值】">
+            <a href="global.html#defaultValue">defaultValue【默认值】</a>
+          </li>
+
+          <li data-name="defined【定义的】">
+            <a href="global.html#defined">defined【定义的】</a>
+          </li>
+
+          <li data-name="DepthFunction【深度函数】">
+            <a href="global.html#DepthFunction">DepthFunction【深度函数】</a>
+          </li>
+
+          <li data-name="destroyObject【销毁对象】">
+            <a href="global.html#destroyObject">destroyObject【销毁对象】</a>
+          </li>
+
+          <li data-name="DeveloperError【开发者错误】">
+            <a href="DeveloperError.html">DeveloperError【开发者错误】</a>
+          </li>
+
+          <li data-name="DirectionalLight【定向光】">
+            <a href="DirectionalLight.html">DirectionalLight【定向光】</a>
+          </li>
+
+          <li data-name="DirectionUp【向上方向】">
+            <a href="global.html#DirectionUp">DirectionUp【向上方向】</a>
+          </li>
+
+          <li data-name="DiscardEmptyTileImagePolicy【丢弃不包含数据的平铺图像的策略】">
+            <a href="DiscardEmptyTileImagePolicy.html">DiscardEmptyTileImagePolicy【丢弃不包含数据的平铺图像的策略】</a>
+          </li>
+
+          <li data-name="DiscardMissingTileImagePolicy【丢弃与包含缺失图像的已知图像匹配的平铺图像的策略】">
+            <a href="DiscardMissingTileImagePolicy.html">DiscardMissingTileImagePolicy【丢弃与包含缺失图像的已知图像匹配的平铺图像的策略】</a>
+          </li>
+
+          <li data-name="DistanceDisplayCondition【距离显示条件】">
+            <a href="DistanceDisplayCondition.html">DistanceDisplayCondition【距离显示条件】</a>
+          </li>
+
+          <li data-name="DistanceDisplayConditionGeometryInstanceAttribute【距离显示条件几何实例属性】">
+            <a
+              href="DistanceDisplayConditionGeometryInstanceAttribute.html">DistanceDisplayConditionGeometryInstanceAttribute【距离显示条件几何实例属性】</a>
+          </li>
+
+          <li data-name="EasingFunction【缓动函数】">
+            <a href="EasingFunction.html">EasingFunction【缓动函数】</a>
+          </li>
+
+          <li data-name="EllipseGeometry【椭圆几何】">
+            <a href="EllipseGeometry.html">EllipseGeometry【椭圆几何】</a>
+          </li>
+
+          <li data-name="EllipseGeometryUpdater【椭圆几何修改器】">
+            <a href="EllipseGeometryUpdater.html">EllipseGeometryUpdater【椭圆几何修改器】</a>
+          </li>
+
+          <li data-name="EllipseGraphics【椭圆图形】">
+            <a href="EllipseGraphics.html">EllipseGraphics【椭圆图形】</a>
+          </li>
+
+          <li data-name="EllipseOutlineGeometry【椭圆轮廓几何】">
+            <a href="EllipseOutlineGeometry.html">EllipseOutlineGeometry【椭圆轮廓几何】</a>
+          </li>
+
+          <li data-name="Ellipsoid【椭圆体】">
+            <a href="Ellipsoid.html">Ellipsoid【椭圆体】</a>
+          </li>
+
+          <li data-name="EllipsoidGeodesic【椭球测地线】">
+            <a href="EllipsoidGeodesic.html">EllipsoidGeodesic【椭球测地线】</a>
+          </li>
+
+          <li data-name="EllipsoidGeometry【椭球几何】">
+            <a href="EllipsoidGeometry.html">EllipsoidGeometry【椭球几何】</a>
+          </li>
+
+          <li data-name="EllipsoidGeometryUpdater【椭球几何修改器】">
+            <a href="EllipsoidGeometryUpdater.html">EllipsoidGeometryUpdater【椭球几何修改器】</a>
+          </li>
+
+          <li data-name="EllipsoidGraphics">
+            <a href="EllipsoidGraphics.html">EllipsoidGraphics【椭球图形】</a>
+          </li>
+
+          <li data-name="EllipsoidOutlineGeometry">
+            <a href="EllipsoidOutlineGeometry.html">EllipsoidOutlineGeometry【椭球轮廓几何】</a>
+          </li>
+
+          <li data-name="EllipsoidRhumbLine">
+            <a href="EllipsoidRhumbLine.html">EllipsoidRhumbLine【椭圆等高线】</a>
+          </li>
+
+          <li data-name="EllipsoidSurfaceAppearance">
+            <a href="EllipsoidSurfaceAppearance.html">EllipsoidSurfaceAppearance【椭球面外观】</a>
+          </li>
+
+          <li data-name="EllipsoidTangentPlane">
+            <a href="EllipsoidTangentPlane.html">EllipsoidTangentPlane【椭球切面】</a>
+          </li>
+
+          <li data-name="EllipsoidTerrainProvider【椭圆体的表面提供地形或其他几何图形】">
+            <a href="EllipsoidTerrainProvider.html">EllipsoidTerrainProvider【椭圆体的表面提供地形或其他几何图形】</a>
+          </li>
+
+          <li data-name="Entity【实体】">
+            <a href="Entity.html">Entity【实体】</a>
+          </li>
+
+          <li data-name="EntityCluster【实体集群】">
+            <a href="EntityCluster.html">EntityCluster【实体集群】</a>
+          </li>
+
+          <li data-name="EntityCollection【实体集合】">
+            <a href="EntityCollection.html">EntityCollection【实体集合】</a>
+          </li>
+
+          <li data-name="EntityView【实体视图】">
+            <a href="EntityView.html">EntityView【实体视图】</a>
+          </li>
+
+          <li data-name="Event【事件】">
+            <a href="Event.html">Event【事件】</a>
+          </li>
+
+          <li data-name="EventHelper【事件助手】">
+            <a href="EventHelper.html">EventHelper【事件助手】</a>
+          </li>
+
+          <li data-name="excludesReverseAxis【排除反向轴】">
+            <a href="global.html#excludesReverseAxis">excludesReverseAxis【排除反向轴】</a>
+          </li>
+
+          <li data-name="exportKml【导出Kml】">
+            <a href="global.html#exportKml">exportKml【导出Kml】</a>
+          </li>
+
+          <li data-name="exportKmlModelCallback【导出kml模型的回调】">
+            <a href="global.html#exportKmlModelCallback">exportKmlModelCallback【导出kml模型的回调】</a>
+          </li>
+
+          <li data-name="exportKmlResultKml【导出kml结果】">
+            <a href="global.html#exportKmlResultKml">exportKmlResultKml【导出kml结果】</a>
+          </li>
+
+          <li data-name="exportKmlResultKmz【导出kml结果生成mkz】">
+            <a href="global.html#exportKmlResultKmz">exportKmlResultKmz【导出kml结果生成mkz】</a>
+          </li>
+
+          <li data-name="Expression【表达】">
+            <a href="Expression.html">Expression【表达】</a>
+          </li>
+
+          <li data-name="ExtrapolationType【外推类型】">
+            <a href="global.html#ExtrapolationType">ExtrapolationType【外推类型】</a>
+          </li>
+
+          <li data-name="FeatureDetection【特征检测】">
+            <a href="FeatureDetection.html">FeatureDetection【特征检测】</a>
+          </li>
+
+          <li data-name="Fog【多雾路段】">
+            <a href="Fog.html">Fog【多雾路段】</a>
+          </li>
+
+          <li data-name="formatError【格式错误】">
+            <a href="global.html#formatError">formatError【格式错误】</a>
+          </li>
+
+          <li data-name="FrameRateMonitor【帧率监视器】">
+            <a href="FrameRateMonitor.html">FrameRateMonitor【帧率监视器】</a>
+          </li>
+
+          <li data-name="FrustumGeometry【截锥体几何】">
+            <a href="FrustumGeometry.html">FrustumGeometry【截锥体几何】</a>
+          </li>
+
+          <li data-name="FrustumOutlineGeometry【视锥轮廓几何】">
+            <a href="FrustumOutlineGeometry.html">FrustumOutlineGeometry【视锥轮廓几何】</a>
+          </li>
+
+          <li data-name="Fullscreen【全屏】">
+            <a href="Fullscreen.html">Fullscreen【全屏】</a>
+          </li>
+
+          <li data-name="GeocoderService【地理编码服务】">
+            <a href="GeocoderService.html">GeocoderService【地理编码服务】</a>
+          </li>
+
+          <li data-name="GeocodeType【地理编码类型】">
+            <a href="global.html#GeocodeType">GeocodeType【地理编码类型】</a>
+          </li>
+
+          <li data-name="GeographicProjection【地理投影】">
+            <a href="GeographicProjection.html">GeographicProjection【地理投影】</a>
+          </li>
+
+          <li data-name="GeographicTilingScheme【地理分块方案】">
+            <a href="GeographicTilingScheme.html">GeographicTilingScheme【地理分块方案】</a>
+          </li>
+
+          <li data-name="GeoJsonDataSource【处理json和数据源】">
+            <a href="GeoJsonDataSource.html">GeoJsonDataSource【处理json和数据源】</a>
+          </li>
+
+          <li data-name="Geometry【几何学】">
+            <a href="Geometry.html">Geometry【几何学】</a>
+          </li>
+
+          <li data-name="GeometryAttribute【几何属性】">
+            <a href="GeometryAttribute.html">GeometryAttribute【几何属性】</a>
+          </li>
+
+          <li data-name="GeometryAttributes【几何属性集】">
+            <a href="GeometryAttributes.html">GeometryAttributes【几何属性集】</a>
+          </li>
+
+          <li data-name="GeometryFactory【几何工厂】">
+            <a href="GeometryFactory.html">GeometryFactory【几何工厂】</a>
+          </li>
+
+          <li data-name="GeometryInstance【几何实例】">
+            <a href="GeometryInstance.html">GeometryInstance【几何实例】</a>
+          </li>
+
+          <li data-name="GeometryInstanceAttribute【几何实例属性】">
+            <a href="GeometryInstanceAttribute.html">GeometryInstanceAttribute【几何实例属性】</a>
+          </li>
+
+          <li data-name="GeometryPipeline【几何流水线】">
+            <a href="GeometryPipeline.html">GeometryPipeline【几何流水线】</a>
+          </li>
+
+          <li data-name="GeometryUpdater【几何更新器】">
+            <a href="GeometryUpdater.html">GeometryUpdater【几何更新器】</a>
+          </li>
+
+          <li data-name="GeometryVisualizer【几何可视化器】">
+            <a href="GeometryVisualizer.html">GeometryVisualizer【几何可视化器】</a>
+          </li>
+
+          <li data-name="getAbsoluteUri【获取绝对Uri】">
+            <a href="global.html#getAbsoluteUri">getAbsoluteUri【获取绝对Uri】</a>
+          </li>
+
+          <li data-name="getBaseUri【获取BaseUri】">
+            <a href="global.html#getBaseUri">getBaseUri【获取BaseUri】</a>
+          </li>
+
+          <li data-name="getExtensionFromUri【从Uri获取扩展名】">
+            <a href="global.html#getExtensionFromUri">getExtensionFromUri【从Uri获取扩展名】</a>
+          </li>
+
+          <li data-name="GetFeatureInfoFormat【获取要素信息格式】">
+            <a href="GetFeatureInfoFormat.html">GetFeatureInfoFormat【获取要素信息格式】</a>
+          </li>
+
+          <li data-name="getFilenameFromUri【从uri获取文件名】">
+            <a href="global.html#getFilenameFromUri">getFilenameFromUri【从uri获取文件名】</a>
+          </li>
+
+          <li data-name="getImagePixels【获取图像像素】">
+            <a href="global.html#getImagePixels">getImagePixels【获取图像像素】</a>
+          </li>
+
+          <li data-name="getTimestamp【获取时间戳】">
+            <a href="global.html#getTimestamp">getTimestamp【获取时间戳】</a>
+          </li>
+
+          <li data-name="Globe【地球】">
+            <a href="Globe.html">Globe【地球】</a>
+          </li>
+
+          <li data-name="GlobeTranslucency【地球半透明】">
+            <a href="GlobeTranslucency.html">GlobeTranslucency【地球半透明】</a>
+          </li>
+
+          <li data-name="GoogleEarthEnterpriseImageryProvider">
+            <a href="GoogleEarthEnterpriseImageryProvider.html">
+              GoogleEarthEnterpriseImageryProvider【使用 Google Earth Enterprise REST API 提供平铺图像】
+            </a>
+          </li>
+
+          <li data-name="GoogleEarthEnterpriseMapsProvider">
+            <a href="GoogleEarthEnterpriseMapsProvider.html">
+              GoogleEarthEnterpriseMapsProvider【使用 Google Earth Imagery API 提供平铺图像】</a>
+          </li>
+
+          <li data-name="GoogleEarthEnterpriseMetadata">
+            <a href="GoogleEarthEnterpriseMetadata.html">GoogleEarthEnterpriseMetadata【使用 Google Earth Enterprise REST
+              API 提供元数据】</a>
+          </li>
+
+          <li data-name="GoogleEarthEnterpriseTerrainData">
+            <a href="GoogleEarthEnterpriseTerrainData.html">GoogleEarthEnterpriseTerrainData【来自 Google
+              地球企业服务器的单个图块的地形数据】</a>
+          </li>
+
+          <li data-name="GoogleEarthEnterpriseTerrainProvider">
+            <a href="GoogleEarthEnterpriseTerrainProvider.html">
+              GoogleEarthEnterpriseTerrainProvider【使用 Google Earth Enterprise REST API 提供平铺地形】
+            </a>
+          </li>
+
+          <li data-name="GpxDataSource【Gpx数据源】">
+            <a href="GpxDataSource.html">GpxDataSource【Gpx数据源】</a>
+          </li>
+
+          <li data-name="GregorianDate【公历】">
+            <a href="GregorianDate.html">GregorianDate【公历】</a>
+          </li>
+
+          <li data-name="GridImageryProvider【网格图像提供商】">
+            <a href="GridImageryProvider.html">GridImageryProvider【网格图像提供商】</a>
+          </li>
+
+          <li data-name="GridMaterialProperty【网格材质属性】">
+            <a href="GridMaterialProperty.html">GridMaterialProperty【网格材质属性】</a>
+          </li>
+
+          <li data-name="GroundGeometryUpdater【地面几何更新器】">
+            <a href="GroundGeometryUpdater.html">GroundGeometryUpdater【地面几何更新器】</a>
+          </li>
+
+          <li data-name="GroundPolylineGeometry【地面折线几何】">
+            <a href="GroundPolylineGeometry.html">GroundPolylineGeometry【地面折线几何】</a>
+          </li>
+
+          <li data-name="GroundPolylinePrimitive【地面折线图元】">
+            <a href="GroundPolylinePrimitive.html">GroundPolylinePrimitive【地面折线图元】</a>
+          </li>
+
+          <li data-name="GroundPrimitive【地面图元】">
+            <a href="GroundPrimitive.html">GroundPrimitive【地面图元】</a>
+          </li>
+
+          <li data-name="HeadingPitchRange【航向俯仰范围】">
+            <a href="HeadingPitchRange.html">HeadingPitchRange【航向俯仰范围】</a>
+          </li>
+
+          <li data-name="HeadingPitchRoll【航向俯仰滚转】">
+            <a href="HeadingPitchRoll.html">HeadingPitchRoll【航向俯仰滚转】</a>
+          </li>
+
+          <li data-name="HeadingPitchRollValues【由数字航向、俯仰和滚动给出的方向】">
+            <a href="global.html#HeadingPitchRollValues">HeadingPitchRollValues【由数字航向、俯仰和滚动给出的方向】</a>
+          </li>
+
+          <li data-name="HeightmapEncoding【高度图编码】">
+            <a href="global.html#HeightmapEncoding">HeightmapEncoding【高度图编码】</a>
+          </li>
+
+          <li data-name="HeightmapTerrainData【高度图地形数据】">
+            <a href="HeightmapTerrainData.html">HeightmapTerrainData【高度图地形数据】</a>
+          </li>
+
+          <li data-name="HeightReference【高度参考】">
+            <a href="global.html#HeightReference">HeightReference【高度参考】</a>
+          </li>
+
+          <li data-name="HermitePolynomialApproximation【多项式插值】">
+            <a href="HermitePolynomialApproximation.html">HermitePolynomialApproximation【多项式插值】</a>
+          </li>
+
+          <li data-name="HermiteSpline【插值曲线】">
+            <a href="HermiteSpline.html">HermiteSpline【插值曲线】</a>
+          </li>
+
+          <li data-name="HilbertOrder【希尔伯特阶】">
+            <a href="HilbertOrder.html">HilbertOrder【希尔伯特阶】</a>
+          </li>
+
+          <li data-name="HorizontalOrigin【水平原点】">
+            <a href="global.html#HorizontalOrigin">HorizontalOrigin【水平原点】</a>
+          </li>
+
+          <li data-name="I3SDataProvider【I3S数据提供者】">
+            <a href="I3SDataProvider.html">I3SDataProvider【I3S数据提供者】</a>
+          </li>
+
+          <li data-name="I3SFeature【I3S功能】">
+            <a href="I3SFeature.html">I3SFeature【I3S功能】</a>
+          </li>
+
+          <li data-name="I3SField【I3S字段】">
+            <a href="I3SField.html">I3SField【I3S字段】</a>
+          </li>
+
+          <li data-name="I3SGeometry【I3S几何】">
+            <a href="I3SGeometry.html">I3SGeometry【I3S几何】</a>
+          </li>
+
+          <li data-name="I3SLayer【I3层】">
+            <a href="I3SLayer.html">I3SLayer【I3层】</a>
+          </li>
+
+          <li data-name="I3SNode【I3S节点】">
+            <a href="I3SNode.html">I3SNode【I3S节点】</a>
+          </li>
+
+          <li data-name="ImageBasedLighting【基于图像的光照】">
+            <a href="ImageBasedLighting.html">ImageBasedLighting【基于图像的光照】</a>
+          </li>
+
+          <li data-name="ImageMaterialProperty【图像材质属性">
+            <a href="ImageMaterialProperty.html">ImageMaterialProperty【图像材质属性
+
+              】</a>
+          </li>
+
+          <li data-name="ImageryLayer【图像层】">
+            <a href="ImageryLayer.html">ImageryLayer【图像层】</a>
+          </li>
+
+          <li data-name="ImageryLayerCollection【图像层收集】">
+            <a href="ImageryLayerCollection.html">ImageryLayerCollection【图像层收集】</a>
+          </li>
+
+          <li data-name="ImageryLayerFeatureInfo【图像层特征信息】">
+            <a href="ImageryLayerFeatureInfo.html">ImageryLayerFeatureInfo【图像层特征信息】</a>
+          </li>
+
+          <li data-name="ImageryProvider">
+            <a href="ImageryProvider.html">ImageryProvider【图像层提供者】</a>
+          </li>
+
+          <li data-name="ImageryTypes">
+            <a href="global.html#ImageryTypes">ImageryTypes【图像类型】</a>
+          </li>
+
+          <li data-name="includesReverseAxis【包括反向轴】">
+            <a href="global.html#includesReverseAxis">includesReverseAxis【包括反向轴】</a>
+          </li>
+
+          <li data-name="IndexDatatype【索引数据类型】">
+            <a href="global.html#IndexDatatype">IndexDatatype【索引数据类型】</a>
+          </li>
+
+          <li data-name="Intersect【相交】">
+            <a href="global.html#Intersect">Intersect【相交】</a>
+          </li>
+
+          <li data-name="Intersections2D【交叉二维】">
+            <a href="Intersections2D.html">Intersections2D【交叉二维】</a>
+          </li>
+
+          <li data-name="IntersectionTests【交集测试】">
+            <a href="IntersectionTests.html">IntersectionTests【交集测试】</a>
+          </li>
+
+          <li data-name="Interval【间隔】">
+            <a href="Interval.html">Interval【间隔】</a>
+          </li>
+
+          <li data-name="Ion">
+            <a href="Ion.html">Ion</a>
+          </li>
+
+          <li data-name="IonGeocoderService【Ion地理编码器服务】">
+            <a href="IonGeocoderService.html">IonGeocoderService【Ion地理编码器服务】</a>
+          </li>
+
+          <li data-name="IonImageryProvider【Ion图像提供者】">
+            <a href="IonImageryProvider.html">IonImageryProvider【Ion图像提供者】</a>
+          </li>
+
+          <li data-name="IonResource【Ion资源】">
+            <a href="IonResource.html">IonResource【Ion资源】</a>
+          </li>
+
+          <li data-name="IonWorldImageryStyle【Ion世界图像样式】">
+            <a href="global.html#IonWorldImageryStyle">IonWorldImageryStyle【Ion世界图像样式】</a>
+          </li>
+
+          <li data-name="isLeapYear【闰年】">
+            <a href="global.html#isLeapYear">isLeapYear【闰年】</a>
+          </li>
+
+          <li data-name="Iso8601">
+            <a href="Iso8601.html">Iso8601</a>
+          </li>
+
+          <li data-name="JulianDate【朱利安日期】">
+            <a href="JulianDate.html">JulianDate【朱利安日期】</a>
+          </li>
+
+          <li data-name="KeyboardEventModifier【键盘事件修改器】">
+            <a href="global.html#KeyboardEventModifier">KeyboardEventModifier【键盘事件修改器】</a>
+          </li>
+
+          <li data-name="KmlCamera【Kml相机】">
+            <a href="KmlCamera.html">KmlCamera【Kml相机】</a>
+          </li>
+
+          <li data-name="KmlDataSource【Kml数据源】">
+            <a href="KmlDataSource.html">KmlDataSource【Kml数据源】</a>
+          </li>
+
+          <li data-name="KmlFeatureData【Kml要素数据】">
+            <a href="KmlFeatureData.html">KmlFeatureData【Kml要素数据】</a>
+          </li>
+
+          <li data-name="KmlLookAt【kml查看】">
+            <a href="KmlLookAt.html">KmlLookAt【kml查看】</a>
+          </li>
+
+          <li data-name="KmlTour【kml浏览】">
+            <a href="KmlTour.html">KmlTour【kml浏览】</a>
+          </li>
+
+          <li data-name="KmlTourFlyTo【mkl浏览到指定目的地】">
+            <a href="KmlTourFlyTo.html">KmlTourFlyTo【mkl浏览到指定目的地】</a>
+          </li>
+
+          <li data-name="KmlTourWait【kml浏览延迟】">
+            <a href="KmlTourWait.html">KmlTourWait【kml浏览延迟】</a>
+          </li>
+
+          <li data-name="Label【标签】">
+            <a href="Label.html">Label【标签】</a>
+          </li>
+
+          <li data-name="LabelCollection【标签集合】">
+            <a href="LabelCollection.html">LabelCollection【标签集合】</a>
+          </li>
+
+          <li data-name="LabelGraphics【标签图形】">
+            <a href="LabelGraphics.html">LabelGraphics【标签图形】</a>
+          </li>
+
+          <li data-name="LabelStyle【标签样式】">
+            <a href="global.html#LabelStyle">LabelStyle【标签样式】</a>
+          </li>
+
+          <li data-name="LabelVisualizer【标签可视化器】">
+            <a href="LabelVisualizer.html">LabelVisualizer【标签可视化器】</a>
+          </li>
+
+          <li data-name="LagrangePolynomialApproximation【拉格朗日多项式逼近】">
+            <a href="LagrangePolynomialApproximation.html">LagrangePolynomialApproximation【拉格朗日多项式逼近】</a>
+          </li>
+
+          <li data-name="LeapSecond【闰秒】">
+            <a href="LeapSecond.html">LeapSecond【闰秒】</a>
+          </li>
+
+          <li data-name="Light【光照】">
+            <a href="Light.html">Light【光照】</a>
+          </li>
+
+          <li data-name="LightingModel【光照模型】">
+            <a href="global.html#LightingModel">LightingModel【光照模型】</a>
+          </li>
+
+          <li data-name="LinearApproximation【线性近似】">
+            <a href="LinearApproximation.html">LinearApproximation【线性近似】</a>
+          </li>
+
+          <li data-name="LinearSpline【线性曲线】">
+            <a href="LinearSpline.html">LinearSpline【线性曲线】</a>
+          </li>
+
+          <li data-name="MapboxImageryProvider【地图盒图像提供者】">
+            <a href="MapboxImageryProvider.html">MapboxImageryProvider【地图框图像提供者】</a>
+          </li>
+
+          <li data-name="MapboxStyleImageryProvider【地图框样式图像提供程序】">
+            <a href="MapboxStyleImageryProvider.html">MapboxStyleImageryProvider【地图框样式图像提供程序】</a>
+          </li>
+
+          <li data-name="MapMode2D【地图模式2D】">
+            <a href="global.html#MapMode2D">MapMode2D【地图模式2D】</a>
+          </li>
+
+          <li data-name="MapProjection【地图投影】">
+            <a href="MapProjection.html">MapProjection【地图投影】</a>
+          </li>
+
+          <li data-name="Material【材料】">
+            <a href="Material.html">Material【材料】</a>
+          </li>
+
+          <li data-name="MaterialAppearance【材质外观】">
+            <a href="MaterialAppearance.html">MaterialAppearance【材质外观】</a>
+          </li>
+
+          <li data-name="MaterialSupport【物质支持】">
+            <a href="MaterialAppearance.MaterialSupport.html">MaterialSupport【物质支持】</a>
+          </li>
+
+          <li data-name="MaterialProperty【材料特性】">
+            <a href="MaterialProperty.html">MaterialProperty【材料特性】</a>
+          </li>
+
+          <li data-name="Math【数学】">
+            <a href="Math.html">Math【数学】</a>
+          </li>
+
+          <li data-name="Matrix2【矩阵2】">
+            <a href="Matrix2.html">Matrix2【矩阵2】</a>
+          </li>
+
+          <li data-name="Matrix3【矩阵3】">
+            <a href="Matrix3.html">Matrix3【矩阵3】</a>
+          </li>
+
+          <li data-name="Matrix4【矩阵4】">
+            <a href="Matrix4.html">Matrix4【矩阵4】</a>
+          </li>
+
+          <li data-name="mergeSort【合并排序】">
+            <a href="global.html#mergeSort">mergeSort【合并排序】</a>
+          </li>
+
+          <li data-name="mergeSortComparator【合并排序比较器】">
+            <a href="global.html#mergeSortComparator">mergeSortComparator【合并排序比较器】</a>
+          </li>
+
+          <li data-name="Model【模型】">
+            <a href="Model.html">Model【模型】</a>
+          </li>
+
+          <li data-name="ModelAnimation【模型动画】">
+            <a href="ModelAnimation.html">ModelAnimation【模型动画】</a>
+          </li>
+
+          <li data-name="ModelAnimationCollection【模型动画集合】">
+            <a href="ModelAnimationCollection.html">ModelAnimationCollection【模型动画集合】</a>
+          </li>
+
+          <li data-name="ModelAnimationLoop【模型动画循环】">
+            <a href="global.html#ModelAnimationLoop">ModelAnimationLoop【模型动画循环】</a>
+          </li>
+
+          <li data-name="ModelFeature【模型特征】">
+            <a href="ModelFeature.html">ModelFeature【模型特征】</a>
+          </li>
+
+          <li data-name="ModelGraphics【模型图形】">
+            <a href="ModelGraphics.html">ModelGraphics【模型图形】</a>
+          </li>
+
+          <li data-name="ModelNode【模型节点】">
+            <a href="ModelNode.html">ModelNode【模型节点】</a>
+          </li>
+
+          <li data-name="ModelVisualizer【模型可视化器】">
+            <a href="ModelVisualizer.html">ModelVisualizer【模型可视化器】</a>
+          </li>
+
+          <li data-name="Moon【月球】">
+            <a href="Moon.html">Moon【月球】</a>
+          </li>
+
+          <li data-name="MorphWeightSpline【变形权重曲线】">
+            <a href="MorphWeightSpline.html">MorphWeightSpline【变形权重曲线】</a>
+          </li>
+
+          <li data-name="NearFarScalar【近远标量】">
+            <a href="NearFarScalar.html">NearFarScalar【近远标量】</a>
+          </li>
+
+          <li data-name="NeverTileDiscardPolicy【指定不应丢弃平铺图像】">
+            <a href="NeverTileDiscardPolicy.html">NeverTileDiscardPolicy【指定不应丢弃平铺图像】</a>
+          </li>
+
+          <li data-name="NodeTransformationProperty【节点转换属性】">
+            <a href="NodeTransformationProperty.html">NodeTransformationProperty【节点转换属性】</a>
+          </li>
+
+          <li data-name="objectToQuery【对象查询】">
+            <a href="global.html#objectToQuery">objectToQuery【对象查询】</a>
+          </li>
+
+          <li data-name="Occluder【封堵器】">
+            <a href="Occluder.html">Occluder【封堵器】</a>
+          </li>
+
+          <li data-name="OpenCageGeocoderService">
+            <a href="OpenCageGeocoderService.html">
+              OpenCageGeocoderService【通过OpenCage服务器提供地理编码】
+            </a>
+          </li>
+
+          <li data-name="OpenStreetMapImageryProvider">
+            <a href="OpenStreetMapImageryProvider.html">
+              OpenStreetMapImageryProvider【提供由OpenStreetMap或其他Slippy切片提供者托管的切片图像的图像提供者】
+            </a>
+          </li>
+
+          <li data-name="OrientedBoundingBox【定向边界框】">
+            <a href="OrientedBoundingBox.html">OrientedBoundingBox【定向边界框】</a>
+          </li>
+
+          <li data-name="OrthographicFrustum【正交平截头体】">
+            <a href="OrthographicFrustum.html">OrthographicFrustum【正交平截头体】</a>
+          </li>
+
+          <li data-name="OrthographicOffCenterFrustum【正交偏心截锥体】">
+            <a href="OrthographicOffCenterFrustum.html">OrthographicOffCenterFrustum【正交偏心截锥体】</a>
+          </li>
+
+          <li data-name="PackableForInterpolation【可打包的类型的静态接口】">
+            <a href="PackableForInterpolation.html">PackableForInterpolation【可打包的类型的静态接口】</a>
+          </li>
+
+          <li data-name="Particle【粒子】">
+            <a href="Particle.html">Particle【粒子】</a>
+          </li>
+
+          <li data-name="ParticleBurst【粒子爆发】">
+            <a href="ParticleBurst.html">ParticleBurst【粒子爆发】</a>
+          </li>
+
+          <li data-name="ParticleEmitter【粒子发射器】">
+            <a href="ParticleEmitter.html">ParticleEmitter【粒子发射器】</a>
+          </li>
+
+          <li data-name="ParticleSystem【粒子系统】">
+            <a href="ParticleSystem.html">ParticleSystem【粒子系统】</a>
+          </li>
+
+          <li data-name="PathGraphics【路径图形】">
+            <a href="PathGraphics.html">PathGraphics【路径图形】</a>
+          </li>
+
+          <li data-name="PathVisualizer【路径可视化工具】">
+            <a href="PathVisualizer.html">PathVisualizer【路径可视化工具】</a>
+          </li>
+
+          <li data-name="PeliasGeocoderService【Pelias地理编码器服务】">
+            <a href="PeliasGeocoderService.html">PeliasGeocoderService【Pelias地理编码器服务】</a>
+          </li>
+
+          <li data-name="PerInstanceColorAppearance【颜色外观】">
+            <a href="PerInstanceColorAppearance.html">PerInstanceColorAppearance【颜色外观】</a>
+          </li>
+
+          <li data-name="PerspectiveFrustum【透视视锥体】">
+            <a href="PerspectiveFrustum.html">PerspectiveFrustum【透视视锥体】</a>
+          </li>
+
+          <li data-name="PerspectiveOffCenterFrustum【视角偏心视锥体】">
+            <a href="PerspectiveOffCenterFrustum.html">PerspectiveOffCenterFrustum【视角偏心视锥体】</a>
+          </li>
+
+          <li data-name="PinBuilder【将自定义地图图钉生成为画布元素的实用程序类】">
+            <a href="PinBuilder.html">PinBuilder【将自定义地图图钉生成为画布元素的实用程序类】</a>
+          </li>
+
+          <li data-name="PixelDatatype【像素数据类型】">
+            <a href="global.html#PixelDatatype">PixelDatatype【像素数据类型】</a>
+          </li>
+
+          <li data-name="PixelFormat【像素格式】">
+            <a href="global.html#PixelFormat">PixelFormat【像素格式】</a>
+          </li>
+
+          <li data-name="Plane【飞机】">
+            <a href="Plane.html">Plane【飞机】</a>
+          </li>
+
+          <li data-name="PlaneGeometry【平面几何】">
+            <a href="PlaneGeometry.html">PlaneGeometry【平面几何】</a>
+          </li>
+
+          <li data-name="PlaneGeometryUpdater【平面几何更新器】">
+            <a href="PlaneGeometryUpdater.html">PlaneGeometryUpdater【平面几何更新器】</a>
+          </li>
+
+          <li data-name="PlaneGraphics【平面图形】">
+            <a href="PlaneGraphics.html">PlaneGraphics【平面图形】</a>
+          </li>
+
+          <li data-name="PlaneOutlineGeometry【平面轮廓几何】">
+            <a href="PlaneOutlineGeometry.html">PlaneOutlineGeometry【平面轮廓几何】</a>
+          </li>
+
+          <li data-name="PointCloudShading【点云着色】">
+            <a href="PointCloudShading.html">PointCloudShading【点云着色】</a>
+          </li>
+
+          <li data-name="PointGraphics【点图形】">
+            <a href="PointGraphics.html">PointGraphics【点图形】</a>
+          </li>
+
+          <li data-name="pointInsideTriangle【三角内点】">
+            <a href="global.html#pointInsideTriangle">pointInsideTriangle【三角内点】</a>
+          </li>
+
+          <li data-name="PointPrimitive【点图元】">
+            <a href="PointPrimitive.html">PointPrimitive【点图元】</a>
+          </li>
+
+          <li data-name="PointPrimitiveCollection【点图元集合】">
+            <a href="PointPrimitiveCollection.html">PointPrimitiveCollection【点图元集合】</a>
+          </li>
+
+          <li data-name="PointVisualizer【点可视化工具】">
+            <a href="PointVisualizer.html">PointVisualizer【点可视化工具】</a>
+          </li>
+
+          <li data-name="PolygonGeometry【多边形几何】">
+            <a href="PolygonGeometry.html">PolygonGeometry【多边形几何】</a>
+          </li>
+
+          <li data-name="PolygonGeometryUpdater【多边形几何更新器】">
+            <a href="PolygonGeometryUpdater.html">PolygonGeometryUpdater【多边形几何更新器】</a>
+          </li>
+
+          <li data-name="PolygonGraphics【多边形图形】">
+            <a href="PolygonGraphics.html">PolygonGraphics【多边形图形】</a>
+          </li>
+
+          <li data-name="PolygonHierarchy【多边形层次结构】">
+            <a href="PolygonHierarchy.html">PolygonHierarchy【多边形层次结构】</a>
+          </li>
+
+          <li data-name="PolygonOutlineGeometry【多边形轮廓几何】">
+            <a href="PolygonOutlineGeometry.html">PolygonOutlineGeometry【多边形轮廓几何】</a>
+          </li>
+
+          <li data-name="Polyline【折线】">
+            <a href="Polyline.html">Polyline【折线】</a>
+          </li>
+
+          <li data-name="PolylineArrowMaterialProperty【折线箭头材质属性】">
+            <a href="PolylineArrowMaterialProperty.html">PolylineArrowMaterialProperty【折线箭头材质属性】</a>
+          </li>
+
+          <li data-name="PolylineCollection【多段线集合】">
+            <a href="PolylineCollection.html">PolylineCollection【多段线集合】</a>
+          </li>
+
+          <li data-name="PolylineColorAppearance【折线颜色外观】">
+            <a href="PolylineColorAppearance.html">PolylineColorAppearance【折线颜色外观】</a>
+          </li>
+
+          <li data-name="PolylineDashMaterialProperty【折线虚线的材质属性】">
+            <a href="PolylineDashMaterialProperty.html">PolylineDashMaterialProperty【折线虚线的材质属性】</a>
+          </li>
+
+          <li data-name="PolylineGeometry【折线几何】">
+            <a href="PolylineGeometry.html">PolylineGeometry【折线几何】</a>
+          </li>
+
+          <li data-name="PolylineGeometryUpdater【折线几何更新器】">
+            <a href="PolylineGeometryUpdater.html">PolylineGeometryUpdater【折线几何更新器】</a>
+          </li>
+
+          <li data-name="PolylineGlowMaterialProperty【折线辉光材料属性】">
+            <a href="PolylineGlowMaterialProperty.html">PolylineGlowMaterialProperty【折线辉光材料属性】</a>
+          </li>
+
+          <li data-name="PolylineGraphics【折线图形】">
+            <a href="PolylineGraphics.html">PolylineGraphics【折线图形】</a>
+          </li>
+
+          <li data-name="PolylineMaterialAppearance【折线材料外观】">
+            <a href="PolylineMaterialAppearance.html">PolylineMaterialAppearance【折线材料外观】</a>
+          </li>
+
+          <li data-name="PolylineOutlineMaterialProperty【折线轮廓材质属性】">
+            <a href="PolylineOutlineMaterialProperty.html">PolylineOutlineMaterialProperty【折线轮廓材质属性】</a>
+          </li>
+
+          <li data-name="PolylineVisualizer【折线可视化器】">
+            <a href="PolylineVisualizer.html">PolylineVisualizer【折线可视化器】</a>
+          </li>
+
+          <li data-name="PolylineVolumeGeometry【折线体积几何】">
+            <a href="PolylineVolumeGeometry.html">PolylineVolumeGeometry【折线体积几何】</a>
+          </li>
+
+          <li data-name="PolylineVolumeGeometryUpdater【折线体积几何更新器】">
+            <a href="PolylineVolumeGeometryUpdater.html">PolylineVolumeGeometryUpdater【折线体积几何更新器】</a>
+          </li>
+
+          <li data-name="PolylineVolumeGraphics【折线体积图形】">
+            <a href="PolylineVolumeGraphics.html">PolylineVolumeGraphics【折线体积图形】</a>
+          </li>
+
+          <li data-name="PolylineVolumeOutlineGeometry【折线体积轮廓几何】">
+            <a href="PolylineVolumeOutlineGeometry.html">PolylineVolumeOutlineGeometry【折线体积轮廓几何】</a>
+          </li>
+
+          <li data-name="PositionProperty【位置属性】">
+            <a href="PositionProperty.html">PositionProperty【位置属性】</a>
+          </li>
+
+          <li data-name="PositionPropertyArray【位置属性数组】">
+            <a href="PositionPropertyArray.html">PositionPropertyArray【位置属性数组】</a>
+          </li>
+
+          <li data-name="PostProcessStage【后处理阶段】">
+            <a href="PostProcessStage.html">PostProcessStage【后处理阶段】</a>
+          </li>
+
+          <li data-name="PostProcessStageCollection【后处理阶段集合】">
+            <a href="PostProcessStageCollection.html">PostProcessStageCollection【后处理阶段集合】</a>
+          </li>
+
+          <li data-name="PostProcessStageComposite【后处理阶段复合】">
+            <a href="PostProcessStageComposite.html">PostProcessStageComposite【后处理阶段复合】</a>
+          </li>
+
+          <li data-name="PostProcessStageLibrary【后处理阶段库】">
+            <a href="PostProcessStageLibrary.html">PostProcessStageLibrary【后处理阶段库】</a>
+          </li>
+
+          <li data-name="PostProcessStageSampleMode【后处理阶段采样模式】">
+            <a href="global.html#PostProcessStageSampleMode">PostProcessStageSampleMode【后处理阶段采样模式】</a>
+          </li>
+
+          <li data-name="Primitive【原始】">
+            <a href="Primitive.html">Primitive【原始】</a>
+          </li>
+
+          <li data-name="PrimitiveCollection【原始集合】">
+            <a href="PrimitiveCollection.html">PrimitiveCollection【原始集合】</a>
+          </li>
+
+          <li data-name="PrimitiveType【原始类型】">
+            <a href="global.html#PrimitiveType">PrimitiveType【原始类型】</a>
+          </li>
+
+          <li data-name="Property【财产】">
+            <a href="Property.html">Property【财产】</a>
+          </li>
+
+          <li data-name="PropertyArray【属性数组】">
+            <a href="PropertyArray.html">PropertyArray【属性数组】</a>
+          </li>
+
+          <li data-name="PropertyBag【财产袋】">
+            <a href="PropertyBag.html">PropertyBag【财产袋】</a>
+          </li>
+
+          <li data-name="Proxy【代理】">
+            <a href="Proxy.html">Proxy【代理】</a>
+          </li>
+
+          <li data-name="QuadraticRealPolynomial【二次实多项式】">
+            <a href="QuadraticRealPolynomial.html">QuadraticRealPolynomial【二次实多项式】</a>
+          </li>
+
+          <li data-name="QuantizedMeshTerrainData【量化网格地形数据】">
+            <a href="QuantizedMeshTerrainData.html">QuantizedMeshTerrainData【量化网格地形数据】</a>
+          </li>
+
+          <li data-name="QuarticRealPolynomial【四次实多项式】">
+            <a href="QuarticRealPolynomial.html">QuarticRealPolynomial【四次实多项式】</a>
+          </li>
+
+          <li data-name="Quaternion【四元数】">
+            <a href="Quaternion.html">Quaternion【四元数】</a>
+          </li>
+
+          <li data-name="QuaternionSpline【四元曲线】">
+            <a href="QuaternionSpline.html">QuaternionSpline【四元曲线】</a>
+          </li>
+
+          <li data-name="queryToObject【查询对象】">
+            <a href="global.html#queryToObject">queryToObject【查询对象】</a>
+          </li>
+
+          <li data-name="Queue【队列】">
+            <a href="Queue.html">Queue【队列】</a>
+          </li>
+
+          <li data-name="Ray【射线】">
+            <a href="Ray.html">Ray【射线】</a>
+          </li>
+
+          <li data-name="Rectangle【矩形】">
+            <a href="Rectangle.html">Rectangle【矩形】</a>
+          </li>
+
+          <li data-name="RectangleGeometry【矩形几何】">
+            <a href="RectangleGeometry.html">RectangleGeometry【矩形几何】</a>
+          </li>
+
+          <li data-name="RectangleGeometryUpdater【矩形几何更新器】">
+            <a href="RectangleGeometryUpdater.html">RectangleGeometryUpdater【矩形几何更新器】</a>
+          </li>
+
+          <li data-name="RectangleGraphics【矩形图形】">
+            <a href="RectangleGraphics.html">RectangleGraphics【矩形图形】</a>
+          </li>
+
+          <li data-name="RectangleOutlineGeometry【矩形轮廓几何】">
+            <a href="RectangleOutlineGeometry.html">RectangleOutlineGeometry【矩形轮廓几何】</a>
+          </li>
+
+          <li data-name="ReferenceFrame【参考范围】">
+            <a href="global.html#ReferenceFrame">ReferenceFrame【参考范围】</a>
+          </li>
+
+          <li data-name="ReferenceProperty【参考属性】">
+            <a href="ReferenceProperty.html">ReferenceProperty【参考属性】</a>
+          </li>
+
+          <li data-name="removeExtension【删除扩展】">
+            <a href="global.html#removeExtension">removeExtension【删除扩展】</a>
+          </li>
+
+          <li data-name="Request【要求】">
+            <a href="Request.html">Request【要求】</a>
+          </li>
+
+          <li data-name="requestAnimationFrame【请求动画帧】">
+            <a href="global.html#requestAnimationFrame">requestAnimationFrame【请求动画帧】</a>
+          </li>
+
+          <li data-name="requestAnimationFrameCallback【请求动画帧回调】">
+            <a href="global.html#requestAnimationFrameCallback">requestAnimationFrameCallback【请求动画帧回调】</a>
+          </li>
+
+          <li data-name="RequestErrorEvent【请求错误事件】">
+            <a href="RequestErrorEvent.html">RequestErrorEvent【请求错误事件】</a>
+          </li>
+
+          <li data-name="RequestScheduler【请求调度器】">
+            <a href="RequestScheduler.html">RequestScheduler【请求调度器】</a>
+          </li>
+
+          <li data-name="RequestState【请求状态】">
+            <a href="global.html#RequestState">RequestState【请求状态】</a>
+          </li>
+
+          <li data-name="RequestType【请求类型】">
+            <a href="global.html#RequestType">RequestType【请求类型】</a>
+          </li>
+
+          <li data-name="Resource【资源】">
+            <a href="Resource.html">Resource【资源】</a>
+          </li>
+
+          <li data-name="RuntimeError【运行时错误】">
+            <a href="RuntimeError.html">RuntimeError【运行时错误】</a>
+          </li>
+
+          <li data-name="SampledPositionProperty【采样位置属性】">
+            <a href="SampledPositionProperty.html">SampledPositionProperty【采样位置属性】</a>
+          </li>
+
+          <li data-name="SampledProperty【采样属性】">
+            <a href="SampledProperty.html">SampledProperty【采样属性】</a>
+          </li>
+
+          <li data-name="sampleTerrain【样本地形】">
+            <a href="global.html#sampleTerrain">sampleTerrain【样本地形】</a>
+          </li>
+
+          <li data-name="sampleTerrainMostDetailed【示例地形详细】">
+            <a href="global.html#sampleTerrainMostDetailed">sampleTerrainMostDetailed【示例地形详细】</a>
+          </li>
+
+          <li data-name="Scene【场景】">
+            <a href="Scene.html">Scene【场景】</a>
+          </li>
+
+          <li data-name="SceneMode【场景模式】">
+            <a href="global.html#SceneMode">SceneMode【场景模式】</a>
+          </li>
+
+          <li data-name="SceneTransforms【场景变换】">
+            <a href="SceneTransforms.html">SceneTransforms【场景变换】</a>
+          </li>
+
+          <li data-name="ScreenSpaceCameraController【屏幕空间相机控制器】">
+            <a href="ScreenSpaceCameraController.html">ScreenSpaceCameraController【屏幕空间相机控制器】</a>
+          </li>
+
+          <li data-name="ScreenSpaceEventHandler【屏幕空间事件处理器】">
+            <a href="ScreenSpaceEventHandler.html">ScreenSpaceEventHandler【屏幕空间事件处理器】</a>
+          </li>
+
+          <li data-name="ScreenSpaceEventType【屏幕空间事件类型】">
+            <a href="global.html#ScreenSpaceEventType">ScreenSpaceEventType【屏幕空间事件类型】</a>
+          </li>
+
+          <li data-name="ShadowMap【阴影贴图】">
+            <a href="ShadowMap.html">ShadowMap【阴影贴图】</a>
+          </li>
+
+          <li data-name="ShadowMode【阴影模式】">
+            <a href="global.html#ShadowMode">ShadowMode【阴影模式】</a>
+          </li>
+
+          <li data-name="ShowGeometryInstanceAttribute【显示几何实例属性】">
+            <a href="ShowGeometryInstanceAttribute.html">ShowGeometryInstanceAttribute【显示几何实例属性】</a>
+          </li>
+
+          <li data-name="Simon1994PlanetaryPositions【Simon1994行星位置】">
+            <a href="Simon1994PlanetaryPositions.html">Simon1994PlanetaryPositions【Simon1994行星位置】</a>
+          </li>
+
+          <li data-name="SimplePolylineGeometry【简单折线几何】">
+            <a href="SimplePolylineGeometry.html">SimplePolylineGeometry【简单折线几何】</a>
+          </li>
+
+          <li data-name="SingleTileImageryProvider【单块图像提供商】">
+            <a href="SingleTileImageryProvider.html">SingleTileImageryProvider【单块图像提供商】</a>
+          </li>
+
+          <li data-name="SkyAtmosphere【天空大气层】">
+            <a href="SkyAtmosphere.html">SkyAtmosphere【天空大气层】</a>
+          </li>
+
+          <li data-name="SkyBox【天空盒】">
+            <a href="SkyBox.html">SkyBox【天空盒】</a>
+          </li>
+
+          <li data-name="SphereEmitter【球体发射器】">
+            <a href="SphereEmitter.html">SphereEmitter【球体发射器】</a>
+          </li>
+
+          <li data-name="SphereGeometry【球体几何】">
+            <a href="SphereGeometry.html">SphereGeometry【球体几何】</a>
+          </li>
+
+          <li data-name="SphereOutlineGeometry【球体轮廓几何】">
+            <a href="SphereOutlineGeometry.html">SphereOutlineGeometry【球体轮廓几何】</a>
+          </li>
+
+          <li data-name="Spherical【球形】">
+            <a href="Spherical.html">Spherical【球形】</a>
+          </li>
+
+          <li data-name="Spline【曲线】">
+            <a href="Spline.html">Spline【曲线】</a>
+          </li>
+
+          <li data-name="SplitDirection【分割方向】">
+            <a href="global.html#SplitDirection">SplitDirection【分割方向】</a>
+          </li>
+
+          <li data-name="StencilFunction【模板函数】">
+            <a href="global.html#StencilFunction">StencilFunction【模板函数】</a>
+          </li>
+
+          <li data-name="StencilOperation【模板操作】">
+            <a href="global.html#StencilOperation">StencilOperation【模板操作】</a>
+          </li>
+
+          <li data-name="SteppedSpline【阶梯曲线】">
+            <a href="SteppedSpline.html">SteppedSpline【阶梯曲线】</a>
+          </li>
+
+          <li data-name="StripeMaterialProperty【条纹材质属性】">
+            <a href="StripeMaterialProperty.html">StripeMaterialProperty【条纹材质属性】</a>
+          </li>
+
+          <li data-name="StripeOrientation【条纹方向】">
+            <a href="global.html#StripeOrientation">StripeOrientation【条纹方向】</a>
+          </li>
+
+          <li data-name="StyleExpression【曲线表达式】">
+            <a href="StyleExpression.html">StyleExpression【曲线表达式】</a>
+          </li>
+
+          <li data-name="subdivideArray【细分数组】">
+            <a href="global.html#subdivideArray">subdivideArray【细分数组】</a>
+          </li>
+
+          <li data-name="Sun【太阳】">
+            <a href="Sun.html">Sun【太阳】</a>
+          </li>
+
+          <li data-name="SunLight【阳光】">
+            <a href="SunLight.html">SunLight【阳光】</a>
+          </li>
+
+          <li data-name="TaskProcessor【任务处理器】">
+            <a href="TaskProcessor.html">TaskProcessor【任务处理器】</a>
+          </li>
+
+          <li data-name="TerrainData【地形数据】">
+            <a href="TerrainData.html">TerrainData【地形数据】</a>
+          </li>
+
+          <li data-name="TerrainProvider【地形提供者】">
+            <a href="TerrainProvider.html">TerrainProvider【地形提供者】</a>
+          </li>
+
+          <li data-name="TextureMagnificationFilter【纹理放大过滤器】">
+            <a href="global.html#TextureMagnificationFilter">TextureMagnificationFilter【纹理放大过滤器】</a>
+          </li>
+
+          <li data-name="TextureMinificationFilter【纹理缩小过滤器】">
+            <a href="global.html#TextureMinificationFilter">TextureMinificationFilter【纹理缩小过滤器】</a>
+          </li>
+
+          <li data-name="TextureUniform【质地均匀】">
+            <a href="TextureUniform.html">TextureUniform【质地均匀】</a>
+          </li>
+
+          <li data-name="TileAvailability【瓦片可用性】">
+            <a href="TileAvailability.html">TileAvailability【瓦片可用性】</a>
+          </li>
+
+          <li data-name="TileCoordinatesImageryProvider【瓦片坐标图像提供者】">
+            <a href="TileCoordinatesImageryProvider.html">TileCoordinatesImageryProvider【瓦片坐标图像提供者】</a>
+          </li>
+
+          <li data-name="TileDiscardPolicy【瓦片丢弃策略】">
+            <a href="TileDiscardPolicy.html">TileDiscardPolicy【瓦片丢弃策略】</a>
+          </li>
+
+          <li data-name="TileMapServiceImageryProvider【瓦片地图服务图像提供者】">
+            <a href="TileMapServiceImageryProvider.html">TileMapServiceImageryProvider【瓦片地图服务图像提供者】</a>
+          </li>
+
+          <li data-name="TileProviderError【瓦片提供者错误】">
+            <a href="TileProviderError.html">TileProviderError【瓦片提供者错误】</a>
+          </li>
+
+          <li data-name="TilingScheme【平铺方案】">
+            <a href="TilingScheme.html">TilingScheme【平铺方案】</a>
+          </li>
+
+          <li data-name="TimeDynamicImagery【时间动态图像】">
+            <a href="TimeDynamicImagery.html">TimeDynamicImagery【时间动态图像】</a>
+          </li>
+
+          <li data-name="TimeDynamicPointCloud【时间动态点云】">
+            <a href="TimeDynamicPointCloud.html">TimeDynamicPointCloud【时间动态点云】</a>
+          </li>
+
+          <li data-name="TimeInterval【时间间隔】">
+            <a href="TimeInterval.html">TimeInterval【时间间隔】</a>
+          </li>
+
+          <li data-name="TimeIntervalCollection【时间间隔集合】">
+            <a href="TimeIntervalCollection.html">TimeIntervalCollection【时间间隔集合】</a>
+          </li>
+
+          <li data-name="TimeIntervalCollectionPositionProperty【定时收集位置属性】">
+            <a href="TimeIntervalCollectionPositionProperty.html">TimeIntervalCollectionPositionProperty【定时收集位置属性】</a>
+          </li>
+
+          <li data-name="TimeIntervalCollectionProperty【时间间隔集合属性】">
+            <a href="TimeIntervalCollectionProperty.html">TimeIntervalCollectionProperty【时间间隔集合属性】</a>
+          </li>
+
+          <li data-name="TimeStandard【时间标准】">
+            <a href="global.html#TimeStandard">TimeStandard【时间标准】</a>
+          </li>
+
+          <li data-name="Transforms【转换】">
+            <a href="Transforms.html">Transforms【转换】</a>
+          </li>
+
+          <li data-name="TranslationRotationScale【平移旋转比例尺】">
+            <a href="TranslationRotationScale.html">TranslationRotationScale【平移旋转比例尺】</a>
+          </li>
+
+          <li data-name="TridiagonalSystemSolver【三对角系统求解器】">
+            <a href="TridiagonalSystemSolver.html">TridiagonalSystemSolver【三对角系统求解器】</a>
+          </li>
+
+          <li data-name="TrustedServers【可信服务器】">
+            <a href="TrustedServers.html">TrustedServers【可信服务器】</a>
+          </li>
+
+          <li data-name="UniformSpecifier【统一说明符】">
+            <a href="global.html#UniformSpecifier">UniformSpecifier【统一说明符】</a>
+          </li>
+
+          <li data-name="UniformType【统一类型】">
+            <a href="global.html#UniformType">UniformType【统一类型】</a>
+          </li>
+
+          <li data-name="UrlTemplateImageryProvider【统一图像提供者】">
+            <a href="UrlTemplateImageryProvider.html">UrlTemplateImageryProvider【统一图像提供者】</a>
+          </li>
+
+          <li data-name="VaryingType【变型】">
+            <a href="global.html#VaryingType">VaryingType【变型】</a>
+          </li>
+
+          <li data-name="VelocityOrientationProperty【速度方向属性】">
+            <a href="VelocityOrientationProperty.html">VelocityOrientationProperty【速度方向属性】</a>
+          </li>
+
+          <li data-name="VelocityVectorProperty【速度向量属性】">
+            <a href="VelocityVectorProperty.html">VelocityVectorProperty【速度向量属性】</a>
+          </li>
+
+          <li data-name="VertexFormat【顶点格式】">
+            <a href="VertexFormat.html">VertexFormat【顶点格式】</a>
+          </li>
+
+          <li data-name="VerticalOrigin【垂直原点】">
+            <a href="global.html#VerticalOrigin">VerticalOrigin【垂直原点】</a>
+          </li>
+
+          <li data-name="VideoSynchronizer【视频同步器】">
+            <a href="VideoSynchronizer.html">VideoSynchronizer【视频同步器】</a>
+          </li>
+
+          <li data-name="ViewportQuad【视口四边形】">
+            <a href="ViewportQuad.html">ViewportQuad【视口四边形】</a>
+          </li>
+
+          <li data-name="Visibility【能见度】">
+            <a href="global.html#Visibility">Visibility【能见度】</a>
+          </li>
+
+          <li data-name="Visualizer【展示台】">
+            <a href="Visualizer.html">Visualizer【展示台】</a>
+          </li>
+
+          <li data-name="VRTheWorldTerrainProvider【VR世界地形提供商】">
+            <a href="VRTheWorldTerrainProvider.html">VRTheWorldTerrainProvider【VR世界地形提供商】</a>
+          </li>
+
+          <li data-name="WallGeometry【墙几何】">
+            <a href="WallGeometry.html">WallGeometry【墙几何】</a>
+          </li>
+
+          <li data-name="WallGeometryUpdater【墙几何更新器】">
+            <a href="WallGeometryUpdater.html">WallGeometryUpdater【墙几何更新器】</a>
+          </li>
+
+          <li data-name="WallGraphics【墙图像】">
+            <a href="WallGraphics.html">WallGraphics【墙图像】</a>
+          </li>
+
+          <li data-name="WallOutlineGeometry【墙轮廓几何】">
+            <a href="WallOutlineGeometry.html">WallOutlineGeometry【墙轮廓几何】</a>
+          </li>
+
+          <li data-name="WebGLConstants【WebGL常量】">
+            <a href="global.html#WebGLConstants">WebGLConstants【WebGL常量】</a>
+          </li>
+
+          <li data-name="WebGLOptions【WebGL选项】">
+            <a href="global.html#WebGLOptions">WebGLOptions【WebGL选项】</a>
+          </li>
+
+          <li data-name="WebMapServiceImageryProvider【网络地图服务图像提供商】">
+            <a href="WebMapServiceImageryProvider.html">WebMapServiceImageryProvider【网络地图服务图像提供商】</a>
+          </li>
+
+          <li data-name="WebMapTileServiceImageryProvider【网络地图瓦片服务图像提供者】">
+            <a href="WebMapTileServiceImageryProvider.html">WebMapTileServiceImageryProvider【网络地图瓦片服务图像提供者】</a>
+          </li>
+
+          <li data-name="WebMercatorProjection【网络墨卡托投影】">
+            <a href="WebMercatorProjection.html">WebMercatorProjection【网络墨卡托投影】</a>
+          </li>
+
+          <li data-name="WebMercatorTilingScheme【网墨卡托平铺方案】">
+            <a href="WebMercatorTilingScheme.html">WebMercatorTilingScheme【网墨卡托平铺方案】</a>
+          </li>
+
+          <li data-name="WindingOrder【缠绕指令】">
+            <a href="global.html#WindingOrder">WindingOrder【缠绕指令】</a>
+          </li>
+
+          <li data-name="writeTextToCanvas【写文本到画布】">
+            <a href="global.html#writeTextToCanvas">writeTextToCanvas【写文本到画布】</a>
+          </li>
+
+        </ul>
+        <h5>小部件</h5>
+        <ul>
+          <li data-name="Animation【动画】">
+            <a href="Animation.html">Animation【动画】</a>
+          </li>
+
+          <li data-name="AnimationViewModel【动画视图模型】">
+            <a href="AnimationViewModel.html">AnimationViewModel【动画视图模型】</a>
+          </li>
+
+          <li data-name="BaseLayerPicker【基础层选择器】">
+            <a href="BaseLayerPicker.html">BaseLayerPicker【基础层选择器】</a>
+          </li>
+
+          <li data-name="BaseLayerPickerViewModel【基础层选择器视图模型】">
+            <a href="BaseLayerPickerViewModel.html">BaseLayerPickerViewModel【基础层选择器视图模型】</a>
+          </li>
+
+          <li data-name="Cesium3DTilesInspector【三维瓦片检查】">
+            <a href="Cesium3DTilesInspector.html">Cesium3DTilesInspector【三维瓦片检查】</a>
+          </li>
+
+          <li data-name="Cesium3DTilesInspectorViewModel【三维瓦片检查器视图模型】【">
+            <a href="Cesium3DTilesInspectorViewModel.html">Cesium3DTilesInspectorViewModel【三维瓦片检查器视图模型】【</a>
+          </li>
+
+          <li data-name="CesiumInspector【检查器】">
+            <a href="CesiumInspector.html">CesiumInspector【检查器】</a>
+          </li>
+
+          <li data-name="CesiumInspectorViewModel【检查器视图模型】">
+            <a href="CesiumInspectorViewModel.html">CesiumInspectorViewModel【检查器视图模型】</a>
+          </li>
+
+          <li data-name="ClockViewModel【时钟视图模型】">
+            <a href="ClockViewModel.html">ClockViewModel【时钟视图模型】</a>
+          </li>
+
+          <li data-name="Command【命令】">
+            <a href="Command.html">Command【命令】</a>
+          </li>
+
+          <li data-name="createCommand【创建命令】">
+            <a href="global.html#createCommand">createCommand【创建命令】</a>
+          </li>
+
+          <li data-name="FullscreenButton【全屏按钮】">
+            <a href="FullscreenButton.html">FullscreenButton【全屏按钮】</a>
+          </li>
+
+          <li data-name="FullscreenButtonViewModel【全屏按钮视图模型】">
+            <a href="FullscreenButtonViewModel.html">FullscreenButtonViewModel【全屏按钮视图模型】</a>
+          </li>
+
+          <li data-name="Geocoder【地理编码器】">
+            <a href="Geocoder.html">Geocoder【地理编码器】</a>
+          </li>
+
+          <li data-name="GeocoderViewModel【地理编码器视图模型】">
+            <a href="GeocoderViewModel.html">GeocoderViewModel【地理编码器视图模型】</a>
+          </li>
+
+          <li data-name="HomeButton【主页按钮】">
+            <a href="HomeButton.html">HomeButton【主页按钮】</a>
+          </li>
+
+          <li data-name="HomeButtonViewModel【主页按钮视图模型】">
+            <a href="HomeButtonViewModel.html">HomeButtonViewModel【主页按钮视图模型】</a>
+          </li>
+
+          <li data-name="InfoBox【信息框】">
+            <a href="InfoBox.html">InfoBox【信息框】</a>
+          </li>
+
+          <li data-name="InfoBoxViewModel【信息框视图模型】">
+            <a href="InfoBoxViewModel.html">InfoBoxViewModel【信息框视图模型】</a>
+          </li>
+
+          <li data-name="NavigationHelpButton【导航帮助按钮】">
+            <a href="NavigationHelpButton.html">NavigationHelpButton【导航帮助按钮】</a>
+          </li>
+
+          <li data-name="NavigationHelpButtonViewModel【导航帮助按钮视图模型】">
+            <a href="NavigationHelpButtonViewModel.html">NavigationHelpButtonViewModel【导航帮助按钮视图模型】</a>
+          </li>
+
+          <li data-name="PerformanceWatchdog【性能看门狗】">
+            <a href="PerformanceWatchdog.html">PerformanceWatchdog【性能看门狗】</a>
+          </li>
+
+          <li data-name="PerformanceWatchdogViewModel【性能看门狗视图模型】">
+            <a href="PerformanceWatchdogViewModel.html">PerformanceWatchdogViewModel【性能看门狗视图模型】</a>
+          </li>
+
+          <li data-name="ProjectionPicker【投影选择器】">
+            <a href="ProjectionPicker.html">ProjectionPicker【投影选择器】</a>
+          </li>
+
+          <li data-name="ProjectionPickerViewModel【投影选择器视图模型】">
+            <a href="ProjectionPickerViewModel.html">ProjectionPickerViewModel【投影选择器视图模型】</a>
+          </li>
+
+          <li data-name="ProviderViewModel【提供者视图模型】">
+            <a href="ProviderViewModel.html">ProviderViewModel【提供者视图模型】</a>
+          </li>
+
+          <li data-name="SceneModePicker【场景模式选择器】">
+            <a href="SceneModePicker.html">SceneModePicker【场景模式选择器】</a>
+          </li>
+
+          <li data-name="SceneModePickerViewModel【场景模式选择器视图模型】">
+            <a href="SceneModePickerViewModel.html">SceneModePickerViewModel【场景模式选择器视图模型】</a>
+          </li>
+
+          <li data-name="SelectionIndicator【选择指示器】">
+            <a href="SelectionIndicator.html">SelectionIndicator【选择指示器】</a>
+          </li>
+
+          <li data-name="SelectionIndicatorViewModel【选择指示器视图模型】">
+            <a href="SelectionIndicatorViewModel.html">SelectionIndicatorViewModel【选择指示器视图模型】</a>
+          </li>
+
+          <li data-name="SvgPathBindingHandler【路径绑定处理器】">
+            <a href="SvgPathBindingHandler.html">SvgPathBindingHandler【路径绑定处理器】</a>
+          </li>
+
+          <li data-name="Timeline【时间线】">
+            <a href="Timeline.html">Timeline【时间线】</a>
+          </li>
+
+          <li data-name="ToggleButtonViewModel【切换按钮视图模型】">
+            <a href="ToggleButtonViewModel.html">ToggleButtonViewModel【切换按钮视图模型】</a>
+          </li>
+
+          <li data-name="Viewer【查看器】">
+            <a href="Viewer.html">Viewer【查看器】</a>
+          </li>
+
+          <li data-name="viewerCesium3DTilesInspectorMixin【三维瓦片查看器检察员混入】">
+            <a href="global.html#viewerCesium3DTilesInspectorMixin">viewerCesium3DTilesInspectorMixin【三维瓦片查看器检察员混入】</a>
+          </li>
+
+          <li data-name="viewerCesiumInspectorMixin【查看器检察员混入】">
+            <a href="global.html#viewerCesiumInspectorMixin">viewerCesiumInspectorMixin【查看器检察员混入】</a>
+          </li>
+
+          <li data-name="viewerDragDropMixin【查看器拖放混合】">
+            <a href="global.html#viewerDragDropMixin">viewerDragDropMixin【查看器拖放混合】</a>
+          </li>
+
+          <li data-name="viewerPerformanceWatchdogMixin【查看器性能看门狗混合】">
+            <a href="global.html#viewerPerformanceWatchdogMixin">viewerPerformanceWatchdogMixin【查看器性能看门狗混合】</a>
+          </li>
+
+          <li data-name="VRButton【VR按钮】">
+            <a href="VRButton.html">VRButton【VR按钮】</a>
+          </li>
+
+          <li data-name="VRButtonViewModel【VR按钮视图模型】">
+            <a href="VRButtonViewModel.html">VRButtonViewModel【VR按钮视图模型】</a>
+          </li>
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    if (window.frameElement) {
+      document.body.className = 'embedded';
+
+      var ele = document.createElement('a');
+      ele.className = 'popout';
+      ele.target = '_blank';
+      ele.href = window.location.href;
+      ele.title = 'Pop out';
+      document.getElementById('main').appendChild(ele);
+    }
+
+    // Set targets on external links.  Sandcastle and GitHub shouldn't be embedded in any iframe.
+    Array.prototype.forEach.call(document.getElementsByTagName('a'), function (a) {
+      if (/^https?:/i.test(a.getAttribute('href'))) {
+        a.target = '_blank';
+      }
+    });
+  </script>
+
+  <script src="../javascript/prism.js"></script>
+  <script src="../javascript/cesiumDoc.js"></script>
+
+</body>
+
+</html>
